@@ -3,26 +3,36 @@ import css from "./Header.module.css";
 
 const Header = () => {
   return (
-    <header>
-      <Link href="/" aria-label="Home">
-        Home
-      </Link>
-      <nav aria-label="Main Navigation">
-        <ul className={css.navigation}>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/notes">Notes</Link>
-          </li>
-          <li>
-            <Link href="/profile">Profile</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
+    <header className={css.header}>
+      <div className={css.container}>
+        {/* Левая часть с текстом */}
+        <div className={css.leftSide}>
+          <Link href="/" className={css.logo} aria-label="Home">
+            Nanny.Services
+          </Link>
+        </div>
+
+        {/* Правая часть с картинкой */}
+        <div className={css.rightSide}>
+          <nav aria-label="Main Navigation">
+            <ul className={css.navigation}>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/nannies">Nannies</Link>
+              </li>
+              {/* <li>
+                <Link href="/favorites">Favorites</Link>
+              </li> */}
+            </ul>
+          </nav>
+          <div className={css.authButtons}>
+            <button className={css.loginBtn}>Log In</button>
+            <button className={css.regBtn}>Registration</button>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };

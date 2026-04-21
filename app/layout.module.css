@@ -1,0 +1,9 @@
+.pageWrapper {
+  margin: 20px;
+  border-radius: 30px;
+  overflow: hidden; /* Чтобы контент не вылезал за скругленные углы */
+  min-height: calc(100vh - 30px); /* Чтобы карточка была во всю высоту */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

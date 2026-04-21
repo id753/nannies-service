@@ -1,0 +1,40 @@
+interface IconProps {
+  isFavorite?: boolean;
+  className?: string;
+}
+
+export const CheckIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      width="20"
+      height="15"
+      viewBox="0 0 20 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        // fill-rule="evenodd"
+        // clip-rule="evenodd"
+        d="M2.5 5L0 7.5L7.5 15L20 2.5L17.5 0L7.5 10L2.5 5Z"
+        fill="#FBFBFB"
+      />
+    </svg>
+  );
+};
+
+export const ArrowIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      width="14"
+      height="16"
+      viewBox="0 0 14 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.6218 0.860936C12.5449 0.314027 12.0392 -0.0670213 11.4923 0.00984164L2.57991 1.2624C2.033 1.33926 1.65196 1.84493 1.72882 2.39184C1.80568 2.93875 2.31135 3.3198 2.85826 3.24294L10.7804 2.12955L11.8938 10.0517C11.9707 10.5986 12.4763 10.9797 13.0232 10.9028C13.5701 10.8259 13.9512 10.3203 13.8743 9.77335L12.6218 0.860936ZM1.59746 15.9774L12.4301 1.60193L10.8329 0.398295L0.000192702 14.7737L1.59746 15.9774Z"
+        fill="#FBFBFB"
+      />
+    </svg>
+  );
+};
