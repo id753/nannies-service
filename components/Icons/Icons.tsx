@@ -181,3 +181,55 @@ export const EyeCloseIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
+
+export const LocationIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_31_2509)">
+        <path
+          d="M14 6.66651C14 11.3332 8 15.3332 8 15.3332C8 15.3332 2 11.3332 2 6.66651C2 5.07521 2.63214 3.54908 3.75736 2.42386C4.88258 1.29864 6.4087 0.666504 8 0.666504C9.5913 0.666504 11.1174 1.29864 12.2426 2.42386C13.3679 3.54908 14 5.07521 14 6.66651Z"
+          stroke="#11101C"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8 8.6665C9.10457 8.6665 10 7.77107 10 6.6665C10 5.56193 9.10457 4.6665 8 4.6665C6.89543 4.6665 6 5.56193 6 6.6665C6 7.77107 6.89543 8.6665 8 8.6665Z"
+          stroke="#11101C"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_31_2509">
+          <rect width="16" height="16" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+export const StarIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      width="15"
+      height="14"
+      viewBox="0 0 15 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.88965 4.12598C9.0488 4.42749 9.33887 4.6381 9.6748 4.69629L13.4746 5.35254L10.7871 8.12012C10.5496 8.36469 10.4388 8.7055 10.4873 9.04297L11.0361 12.8604L7.5752 11.1592L7.45801 11.1094C7.21993 11.0248 6.95976 11.0248 6.72168 11.1094L6.60449 11.1592L3.14258 12.8604L3.69238 9.04297C3.74091 8.7055 3.6301 8.36469 3.39258 8.12012L0.704102 5.35254L4.50488 4.69629C4.84082 4.6381 5.13088 4.42749 5.29004 4.12598L7.08984 0.714844L8.88965 4.12598Z"
+        fill="#FFC531"
+        stroke="#FFC531"
+        stroke-width="1.2"
+      />
+    </svg>
+  );
+};

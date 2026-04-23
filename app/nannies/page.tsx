@@ -1,7 +1,12 @@
+import Item from "@/components/Item/Item";
 import React from "react";
 
 const Nannies = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Item />
+    </div>
+  );
 };
 
 export default Nannies;
