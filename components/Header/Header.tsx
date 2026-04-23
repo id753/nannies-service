@@ -6,21 +6,21 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const [modalType, setModalType] = useState<"login" | "register" | null>(null);
+
+  const closeModal = () => setModalType(null);
 
   return (
     <header className={css.header}>
       <div className={css.container}>
-        {/* Левая часть с текстом */}
+        {/* Левая часть: Логотип */}
         <div className={css.leftSide}>
           <Link href="/" className={css.logo} aria-label="Home">
             Nanny.Services
           </Link>
         </div>
 
-        {/* Правая часть с картинкой */}
+        {/* Правая часть: Навигация и Кнопки */}
         <div className={css.rightSide}>
           <nav aria-label="Main Navigation">
             <ul className={css.navigation}>
@@ -30,21 +30,28 @@ const Header = () => {
               <li>
                 <Link href="/nannies">Nannies</Link>
               </li>
-              {/* <li>
-                <Link href="/favorites">Favorites</Link>
-              </li> */}
             </ul>
           </nav>
+
           <div className={css.authButtons}>
-            <button className={css.loginBtn} onClick={openModal}>
+            <button
+              onClick={() => setModalType("login")}
+              className={css.loginBtn}
+            >
               Log In
             </button>
-            {/* Условие: если true — показываем модалку */}
-            {isModalOpen && <Modal onClose={closeModal} />}
-            <button className={css.regBtn}>Registration</button>
+
+            <button
+              onClick={() => setModalType("register")}
+              className={css.regBtn}
+            >
+              Registration
+            </button>
           </div>
         </div>
       </div>
+
+      {modalType && <Modal type={modalType} onClose={closeModal} />}
     </header>
   );
 };

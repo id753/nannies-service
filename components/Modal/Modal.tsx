@@ -4,9 +4,11 @@ import React from "react";
 
 interface ModalProps {
   onClose: () => void;
+  type: "login" | "register";
 }
 
-const Modal = ({ onClose }: ModalProps) => {
+const Modal = ({ onClose, type }: ModalProps) => {
+  const isLogin = type === "login";
   return (
     <div className={css.backdrop}>
       <div className={css.modal}>
@@ -14,13 +16,25 @@ const Modal = ({ onClose }: ModalProps) => {
           <CloseIcon />
         </button>
 
-        <h2 className={css.title}>Log In</h2>
+        <h2 className={css.title}>{isLogin ? "Log In" : "Registration"}</h2>
         <p className={css.text}>
-          Welcome back! Please enter your credentials to access your account and
-          continue your babysitter search.
+          {isLogin
+            ? "Welcome back! Please enter your credentials to access your account."
+            : "Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information."}
         </p>
 
         <form className={css.form}>
+          {!isLogin && (
+            <div className={css.inputWrapper}>
+              <input
+                type="text"
+                name="Name"
+                placeholder="Name"
+                className={css.input}
+              />
+            </div>
+          )}
+
           <div className={css.inputWrapper}>
             <input
               type="email"
@@ -43,7 +57,7 @@ const Modal = ({ onClose }: ModalProps) => {
           </div>
 
           <button type="submit" className={css.submitBtn}>
-            Log In
+            {isLogin ? "Log In" : "Sign Up"}
           </button>
         </form>
       </div>
