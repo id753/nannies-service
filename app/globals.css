@@ -1,6 +1,8 @@
 :root {
-  --main: #103931;
+  --main: #f03f3b;
   --white: #fbfbfb;
+
+  --hover: rgba(240, 63, 59, 0.2);
 
   /* --gray: #8d929a; */
   /* --gray-light: #dadde1; */
@@ -8,7 +10,6 @@
   /* --inputs: #f7f7f7; */
 
   /* --button: #3470ff; */
-  /* --button-hover: #0b44cd; */
   /* --light-blue: #00aad4; */
   /* --bg: #f5f5f5; */
 

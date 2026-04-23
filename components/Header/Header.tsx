@@ -1,7 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import css from "./Header.module.css";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <header className={css.header}>
       <div className={css.container}>
@@ -28,7 +36,11 @@ const Header = () => {
             </ul>
           </nav>
           <div className={css.authButtons}>
-            <button className={css.loginBtn}>Log In</button>
+            <button className={css.loginBtn} onClick={openModal}>
+              Log In
+            </button>
+            {/* Условие: если true — показываем модалку */}
+            {isModalOpen && <Modal onClose={closeModal} />}
             <button className={css.regBtn}>Registration</button>
           </div>
         </div>

@@ -1,0 +1,116 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(11, 11, 11, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 64px;
+  width: 100%;
+  max-width: 565px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #11101c;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(17, 16, 28, 0.5);
+  margin-bottom: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  /* padding: 16px 380px 16px 18px; */
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: #11101c;
+}
+.input::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: #11101c;
+  font-family: inherit;
+}
+.input:focus {
+  outline: none; /* Убирает синюю стандартную рамку браузера */
+  border-color: var(--main);
+}
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.iconInside {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.submitBtn {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--main);
+  color: #ffffff;
+  border: none;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.submitBtn:hover {
+  background-color: var(--white);
+  color: var(--main);
+  border: 1px solid var(--main);
+}
