@@ -1,6 +1,6 @@
 import { CloseIcon, EyeCloseIcon, EyeOpenIcon } from "../Icons/Icons";
 import css from "./Modal.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface ModalProps {
   onClose: () => void;
@@ -10,6 +10,21 @@ interface ModalProps {
 const Modal = ({ onClose, type }: ModalProps) => {
   const isLogin = type === "login";
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  //  Логика закрытия по ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    // Удаляем чтобы не было утечек памяти
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
