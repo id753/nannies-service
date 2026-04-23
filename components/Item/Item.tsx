@@ -2,8 +2,30 @@ import Link from "next/link";
 import { HeartIcon, LocationIcon, StarIcon } from "../Icons/Icons";
 import css from "./Item.module.css";
 import Image from "next/image";
+interface Babysitter {
+  name: string;
+  avatar_url: string;
+  birthday: string;
+  experience: string;
+  reviews: {
+    reviewer: string;
+    rating: number;
+    comment: string;
+  }[];
+  education: string;
+  kids_age: string;
+  price_per_hour: number;
+  location: string;
+  about: string;
+  characters: string[];
+  rating: number;
+}
 
-const Item = () => {
+// 2. Описываем пропсы самого компонента
+interface ItemProps {
+  item: Babysitter;
+}
+const Item = ({ item }: ItemProps) => {
   return (
     <div className={css.container}>
       <div className={css.avatarWrapper}>
