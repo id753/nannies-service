@@ -11,6 +11,7 @@ export default function Home() {
         <div className={css.content}>
           <h1 className={css.title}>Make Life Easier for the Family:</h1>
           <p className={css.text}>Find Babysitters Online for All Occasions</p>
+
           <Link href="/nannies" className={css.button}>
             Get started
             <span className={css.arrow}>

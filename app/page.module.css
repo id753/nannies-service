@@ -68,17 +68,19 @@
 }
 
 .button:hover {
-  background-color: #fbfbfb;
-  color: #f03f3b;
+  /* background-color: var(--main); */
+  /* color: #f03f3b; */
 }
 
 .arrow {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .button:hover .arrow {
+  transform: rotate(55deg);
 }
 
 .arrow svg {
