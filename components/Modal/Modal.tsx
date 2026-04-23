@@ -1,6 +1,6 @@
-import { ArrowIcon, CheckIcon, CloseIcon, EyeOpenIcon } from "../Icons/Icons";
+import { CloseIcon, EyeCloseIcon, EyeOpenIcon } from "../Icons/Icons";
 import css from "./Modal.module.css";
-import React from "react";
+import React, { useState } from "react";
 
 interface ModalProps {
   onClose: () => void;
@@ -9,20 +9,26 @@ interface ModalProps {
 
 const Modal = ({ onClose, type }: ModalProps) => {
   const isLogin = type === "login";
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={css.backdrop}>
+    <div className={css.backdrop} onClick={handleBackdropClick}>
       <div className={css.modal}>
-        <button className={css.closeBtn}>
+        <button onClick={onClose} className={css.closeBtn} type="button">
           <CloseIcon />
         </button>
-
         <h2 className={css.title}>{isLogin ? "Log In" : "Registration"}</h2>
         <p className={css.text}>
           {isLogin
             ? "Welcome back! Please enter your credentials to access your account."
             : "Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information."}
         </p>
-
         <form className={css.form}>
           {!isLogin && (
             <div className={css.inputWrapper}>
@@ -46,13 +52,16 @@ const Modal = ({ onClose, type }: ModalProps) => {
 
           <div className={css.inputWrapper}>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="Password"
               placeholder="Password"
               className={css.input}
             />
-            <span className={css.iconInside}>
-              <EyeOpenIcon />
+            <span
+              className={css.iconInside}
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <EyeOpenIcon /> : <EyeCloseIcon />}
             </span>
           </div>
 
