@@ -7,60 +7,52 @@
 }
 
 .homePage {
-  top: 0;
   margin-top: 20px;
   background-color: transparent;
 }
 
 .colored {
-  top: 0;
-  margin-top: 0;
   background-color: var(--main);
 }
+
 .container {
   display: flex;
-  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
   height: 88px;
+  padding: 0 96px;
 
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
 }
-.logo {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 117%;
-  letter-spacing: -0.02em;
-  color: #fbfbfb;
-}
-.leftSide {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  padding-left: 96px;
-  margin-right: 40px;
-}
 
-.leftSide a {
+.logo {
   font-size: 24px;
   font-weight: 700;
   color: white;
   text-decoration: none;
+  margin-right: 32px;
 }
 
-.rightSide {
-  flex: 1;
+.nav {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 96px;
+}
+
+.navDefault {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navHome {
+  position: static;
 }
 
 .navigation {
   display: flex;
-  list-style: none;
   gap: 40px;
+  list-style: none;
   margin: 0;
-  margin-right: 92px;
   padding: 0;
 }
 
@@ -68,32 +60,73 @@
   color: white;
   text-decoration: none;
   font-size: 16px;
+  position: relative;
 }
 
-.authButtons {
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* ПРАВАЯ ЧАСТЬ */
+.rightSide {
   display: flex;
   align-items: center;
+  gap: 92px;
+}
+
+/* USER */
+.userMenu {
+  display: flex;
+  align-items: center;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main);
+  margin-right: 14px;
+}
+
+.userName {
+  font-size: 18px;
+  color: #fbfbfb;
+  margin-right: 24px;
+}
+
+/* КНОПКИ */
+.authButtons {
+  display: flex;
   gap: 8px;
 }
 
-.loginBtn {
+.loginBtn,
+.logoutBtn {
   border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
-  padding: 14px 39px;
-  width: 128px;
-  height: 48px;
+  padding: 10px 24px;
   background: transparent;
   color: white;
+  cursor: pointer;
 }
 
 .regBtn {
   border-radius: 30px;
-  padding: 14px 40px;
-  width: 168px;
-  height: 48px;
+  padding: 10px 24px;
+  background: var(--main);
   color: white;
   border: none;
-  outline: none;
-
-  background: var(--main);
+  cursor: pointer;
 }
