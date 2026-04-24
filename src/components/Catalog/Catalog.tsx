@@ -1,74 +1,58 @@
-// components/Catalog/Catalog.tsx
 "use client";
-import rawData from "../../data/babysitters.json";
-import { useState } from "react";
-// import { Car, getCars } from "../../services/lib/api";
-import Item from "../Item/Item";
-import css from "./Catalog.module.css";
-import { useSearchParams } from "next/navigation";
 
-interface CatalogProps {
-  // initialCars: Car[];
-  totalPages: number;
+import { useState, useEffect } from "react";
+import { ref, onValue } from "firebase/database";
+import { db } from "../../firebaseConfig";
+import Image from "next/image";
+import Item from "../Item/Item";
+
+// 1. Опишем интерфейс няни, чтобы TS не ругался
+interface Nanny {
+  id: string | number;
+  name: string;
+  avatar_url: string;
+  birthday: string;
+  experience: string;
+  price_per_hour: number;
+  // добавь остальные поля, которые есть в твоем JSON
 }
 
-const Catalog = ({ totalPages }: CatalogProps) => {
-  // const [cars, setCars] = useState<Car[]>(initialCars);
-  const [page, setPage] = useState(1);
-  // const [isLoading, setIsLoading] = useState(false);
-  const babysitters = rawData.map((sitter, index) => ({
-    ...sitter,
-    id: sitter.name + index, // Создаем временный ID из имени и индекса
-  }));
-  // const searchParams = useSearchParams();
+const NanniesList = () => {
+  // Указываем тип состояния <Nanny[]>
+  const [nannies, setNannies] = useState<Nanny[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const showButton = page < totalPages;
+  useEffect(() => {
+    const nanniesRef = ref(db);
 
-  // const handleLoadMore = async () => {
-  //   if (isLoading) return;
-  //   setIsLoading(true);
+    const unsubscribe = onValue(
+      nanniesRef,
+      (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const list = Array.isArray(data) ? data : Object.values(data);
+          setNannies(list as Nanny[]);
+        }
+        setLoading(false);
+      },
+      (error) => {
+        console.error("Ошибка при получении данных:", error);
+        setLoading(false);
+      }
+    );
 
-  //   const nextPage = page + 1;
+    return () => unsubscribe(); // Чистим подписку при размонтировании
+  }, []);
 
-  //   try {
-  //     const currentFilters = Object.fromEntries(searchParams.entries());
-
-  //     const data = await getCars(nextPage, 12, currentFilters);
-
-  //     const newCars = data.cars;
-
-  //     if (newCars && newCars.length > 0) {
-  //       setCars((prev) => [...prev, ...newCars]);
-  //       setPage(nextPage);
-  //     }
-  //   } catch (error) {
-  //     console.error("Failed to load cars", error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+  if (loading) return <div>Загрузка нянь...</div>;
 
   return (
-    <section className={css.section}>
-      <ul className={css.list}>
-        {babysitters.map((item) => (
-          <li key={item.id}>
-            <Item item={item} />
-          </li>
-        ))}
-      </ul>
-
-      {/* {showButton && (
-        <button
-          onClick={handleLoadMore}
-          className={css.button}
-          disabled={isLoading}
-        >
-          {isLoading ? "Loading..." : "Load more"}
-        </button>
-      )} */}
-    </section>
+    <ul style={{ listStyle: "none", padding: 0 }}>
+      {nannies.map((item, index) => (
+        <Item key={index} item={item} />
+      ))}
+    </ul>
   );
 };
 
-export default Catalog;
+export default NanniesList;

@@ -1,7 +1,7 @@
 import css from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowIcon, CheckIcon } from "@/components/Icons/Icons";
+import { ArrowIcon, CheckIcon } from "@/src/components/Icons/Icons";
 
 export default function Home() {
   return (

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeartIcon, LocationIcon, StarIcon } from "../Icons/Icons";
 import css from "./Item.module.css";
 import Image from "next/image";
+
 interface Babysitter {
   name: string;
   avatar_url: string;
@@ -21,42 +22,42 @@ interface Babysitter {
   rating: number;
 }
 
-// 2. Описываем пропсы самого компонента
 interface ItemProps {
   item: Babysitter;
 }
 const Item = ({ item }: ItemProps) => {
   return (
-    <div className={css.container}>
+    <li className={css.container}>
       <div className={css.avatarWrapper}>
         <div className={css.avatar}>
           <Image
-            src="/test.jpg"
-            alt="Maria Kovalenko"
+            // todo /default-avatar
+            src={item.avatar_url || "/default-avatar.png"}
+            alt={item.name}
             width={96}
             height={96}
             className={css.image}
+            unoptimized
           />
           <span className={css.onlineBadge}></span>
         </div>
       </div>
 
-      {/* Правая колонка: Весь контент */}
       <div className={css.rightBlock}>
-        {/* Верхняя строка: Статус, Локация, Рейтинг, Цена и Сердце */}
         <div className={css.headerRow}>
           <div className={css.infoSummary}>
             <span className={css.tag}>Nanny</span>
 
             <div className={css.stats}>
               <p className={css.statItem}>
-                <LocationIcon /> Lviv, Ukraine
+                <LocationIcon /> {item.location}
               </p>
               <p className={css.statItem}>
-                <StarIcon /> Rating: 4.5
+                <StarIcon /> Rating: {item.rating}
               </p>
               <p className={css.statItem}>
-                Price / 1 hour: <span className={css.priceValue}>16$</span>
+                Price / 1 hour:{" "}
+                <span className={css.priceValue}>{item.price_per_hour}$</span>
               </p>
             </div>
           </div>
@@ -66,46 +67,39 @@ const Item = ({ item }: ItemProps) => {
           </button>
         </div>
 
-        <h3 className={css.name}>Maria Kovalenko</h3>
+        <h3 className={css.name}>{item.name}</h3>
 
-        {/* Сетка характеристик   */}
         <div className={css.features}>
           <p className={css.featureItem}>
-            Age: <span className={css.accent}>32</span>
+            {/* // todo вычислить возраст */}
+            Age: <span className={css.accent}>{item.birthday}</span>
           </p>
           <p className={css.featureItem}>
-            Experience: <span className={css.accent}>7 years</span>
+            Experience: <span className={css.accent}>{item.experience}</span>
           </p>
           <p className={css.featureItem}>
-            Kids Age:{" "}
-            <span className={css.accent}>6 months to 8 years old</span>
+            Kids Age: <span className={css.accent}>{item.kids_age}</span>
           </p>
           <p className={css.featureItem}>
             Characters:{" "}
             <span className={css.accent}>
-              Compassionate, Knowledgeable, Adaptive, Trustworthy
+              {Array.isArray(item.characters)
+                ? item.characters.join(", ")
+                : item.characters}
             </span>
           </p>
           <p className={css.featureItem}>
-            Education:{" "}
-            <span className={css.accent}>
-              Masters in Child Psychology, CPR Ce
-            </span>
+            Education: <span className={css.accent}>{item.education}</span>
           </p>
         </div>
 
-        <p className={css.description}>
-          I have a passion for teaching and mentoring children. I aim to help
-          them grow and learn in a safe and loving environment. I am also a
-          trained child psychologist, which helps me in understanding and
-          catering to the unique needs of every child.
-        </p>
+        <p className={css.description}>{item.about}</p>
 
-        <Link href="/" className={css.readMore}>
+        <Link href={`/nannies/${item.name}`} className={css.readMore}>
           Read more
         </Link>
       </div>
-    </div>
+    </li>
   );
 };
 
