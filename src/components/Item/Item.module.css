@@ -34,7 +34,7 @@
 
 .onlineBadge {
   position: absolute;
-  top: 14px;
+  top: 9px;
   right: 14px;
   width: 14px;
   height: 14px;
@@ -135,7 +135,9 @@
   color: #11101c;
   line-height: 150%;
 }
-
+.underlined {
+  text-decoration: underline;
+}
 .description {
   color: rgba(17, 16, 28, 0.5);
   line-height: 1.25;

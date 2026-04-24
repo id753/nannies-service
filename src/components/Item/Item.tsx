@@ -2,25 +2,8 @@ import Link from "next/link";
 import { HeartIcon, LocationIcon, StarIcon } from "../Icons/Icons";
 import css from "./Item.module.css";
 import Image from "next/image";
-
-interface Babysitter {
-  name: string;
-  avatar_url: string;
-  birthday: string;
-  experience: string;
-  reviews: {
-    reviewer: string;
-    rating: number;
-    comment: string;
-  }[];
-  education: string;
-  kids_age: string;
-  price_per_hour: number;
-  location: string;
-  about: string;
-  characters: string[];
-  rating: number;
-}
+import { Babysitter } from "@/src/types";
+import { calculateAge } from "@/src/utils/calculateAge";
 
 interface ItemProps {
   item: Babysitter;
@@ -71,8 +54,10 @@ const Item = ({ item }: ItemProps) => {
 
         <div className={css.features}>
           <p className={css.featureItem}>
-            {/* // todo вычислить возраст */}
-            Age: <span className={css.accent}>{item.birthday}</span>
+            Age:{" "}
+            <span className={`${css.accent} ${css.underlined}`}>
+              {calculateAge(item.birthday)}
+            </span>
           </p>
           <p className={css.featureItem}>
             Experience: <span className={css.accent}>{item.experience}</span>

@@ -3,23 +3,11 @@
 import { useState, useEffect } from "react";
 import { ref, onValue } from "firebase/database";
 import { db } from "../../firebaseConfig";
-import Image from "next/image";
 import Item from "../Item/Item";
-
-// 1. Опишем интерфейс няни, чтобы TS не ругался
-interface Nanny {
-  id: string | number;
-  name: string;
-  avatar_url: string;
-  birthday: string;
-  experience: string;
-  price_per_hour: number;
-  // добавь остальные поля, которые есть в твоем JSON
-}
+import { Babysitter } from "@/src/types";
 
 const NanniesList = () => {
-  // Указываем тип состояния <Nanny[]>
-  const [nannies, setNannies] = useState<Nanny[]>([]);
+  const [nannies, setNannies] = useState<Babysitter[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +19,7 @@ const NanniesList = () => {
         const data = snapshot.val();
         if (data) {
           const list = Array.isArray(data) ? data : Object.values(data);
-          setNannies(list as Nanny[]);
+          setNannies(list as Babysitter[]);
         }
         setLoading(false);
       },
@@ -41,10 +29,10 @@ const NanniesList = () => {
       }
     );
 
-    return () => unsubscribe(); // Чистим подписку при размонтировании
+    return () => unsubscribe();
   }, []);
 
-  if (loading) return <div>Загрузка нянь...</div>;
+  if (loading) return <div>Searching for nannies...</div>;
 
   return (
     <ul style={{ listStyle: "none", padding: 0 }}>
