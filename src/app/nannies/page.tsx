@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 const Nannies = async ({ searchParams }: PageProps) => {
-  const filters = await searchParams;
+  // const filters = await searchParams;
 
   // const data = await getCars(1, 12, filters);
 
