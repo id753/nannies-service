@@ -4,14 +4,19 @@ import Link from "next/link";
 import css from "./Header.module.css";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [modalType, setModalType] = useState<"login" | "register" | null>(null);
 
   const closeModal = () => setModalType(null);
 
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const headerClasses = `${css.header} ${isHome ? css.homePage : css.colored}`;
+
   return (
-    <header className={css.header}>
+    <header className={headerClasses}>
       <div className={css.container}>
         {/* Левая часть: Логотип */}
         <div className={css.leftSide}>

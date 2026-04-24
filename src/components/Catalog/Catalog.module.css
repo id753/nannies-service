@@ -1,7 +1,12 @@
 .container {
   background: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
 }
 .list {
   list-style: "none";
   padding: 0;
+  margin-bottom: 64px;
 }

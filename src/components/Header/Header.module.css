@@ -1,11 +1,22 @@
 .header {
-  position: absolute; /* Чтобы лежал поверх картинки */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
 }
 
+.homePage {
+  top: 0;
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+.colored {
+  top: 0;
+  margin-top: 0;
+  background-color: var(--main);
+}
 .container {
   display: flex;
   width: 100%;
@@ -22,7 +33,7 @@
   color: #fbfbfb;
 }
 .leftSide {
-  flex: 1; /* Ровно 50% ширины */
+  flex: 1;
   display: flex;
   align-items: center;
   padding-left: 96px;
@@ -37,7 +48,7 @@
 }
 
 .rightSide {
-  flex: 1; /* Ровно 50% ширины */
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;

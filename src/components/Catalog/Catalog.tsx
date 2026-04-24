@@ -6,6 +6,7 @@ import { db } from "../../firebaseConfig";
 import Item from "../Item/Item";
 import { Babysitter } from "@/src/types";
 import Filter from "../Filter/Filter";
+import Button from "../UI/Button/Button";
 
 const NanniesList = () => {
   const [nannies, setNannies] = useState<Babysitter[]>([]);
@@ -43,6 +44,9 @@ const NanniesList = () => {
           <Item key={index} item={item} />
         ))}
       </ul>
+      <Button type="button" onClick={() => console.log("Open modal")}>
+        Read more
+      </Button>
     </div>
   );
 };

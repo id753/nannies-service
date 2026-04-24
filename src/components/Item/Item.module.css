@@ -9,6 +9,9 @@
   margin-bottom: 32px;
   border: 1px solid #ff002f; /* ! */
 }
+.container:last-child {
+  margin-bottom: 0;
+}
 
 /* Аватар и онлайн-статус */
 .avatarWrapper {

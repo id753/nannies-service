@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import css from "./layout.module.css";
-
-import Header from "@/src/components/Header/Header";
-import Footer from "@/src/components/Footer/Footer";
+import PageLayoutHandler from "./../components/PageLayoutHandler/PageLayoutHandler";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,14 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-        {/* Обертка, создающая эффект карточки */}
-        <div className={css.pageWrapper}>
-          <Header />
-          <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-            {children}
-          </main>
-          {/* <Footer /> */}
-        </div>
+        <PageLayoutHandler>{children}</PageLayoutHandler>
       </body>
     </html>
   );
