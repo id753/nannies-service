@@ -1,53 +1,7 @@
-.section {
-  padding-left: 120px;
-  padding-right: 120px;
-  display: flex;
-  flex-direction: column;
+.container {
+  background: #f3f3f3;
 }
 .list {
-  list-style: none;
-
-  margin: 56px 0 80px;
-
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(4, 276px);
-  column-gap: 32px;
-  row-gap: 48px;
-
-  grid-auto-rows: 1fr;
+  list-style: "none";
+  padding: 0;
 }
-
-.button {
-  display: block;
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 125%;
-  color: var(--main);
-  background-color: rgb(255, 255, 255);
-  border: 1px solid var(--button);
-  border-radius: 12px;
-  padding: 12px 10px;
-  width: 182px;
-  height: 44px;
-  cursor: pointer;
-  margin: 0 auto 124px;
-}
-.button:hover {
-  border: 1px solid var(--button-hover);
-}
-/* Адаптив для средних экранов  */
-/* @media (max-width: 1200px) {
-  .list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-} */
-
-/* Адаптив для мобильных устройств */
-/* @media (max-width: 768px) {
-  .list {
-    grid-template-columns: repeat(auto-fill, minmax(274px, 1fr));
-    justify-content: center;
-  }
-} */
