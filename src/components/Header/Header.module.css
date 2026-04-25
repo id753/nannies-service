@@ -121,6 +121,12 @@
   color: white;
   cursor: pointer;
 }
+.loginBtn:hover,
+.logoutBtn:hover {
+  background: var(--main);
+  color: white;
+  border-color: transparent;
+}
 
 .regBtn {
   border-radius: 30px;
@@ -129,4 +135,9 @@
   color: white;
   border: none;
   cursor: pointer;
+}
+.regBtn:hover {
+  background-color: #ffffff;
+  color: var(--main);
+  border-color: var(--main);
 }

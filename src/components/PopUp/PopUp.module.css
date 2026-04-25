@@ -15,7 +15,7 @@
 }
 
 .modal {
-  background: #ffffff;
+  background: #fbfbfb;
   border-radius: 30px;
   padding: 64px;
   width: 100%;
@@ -143,8 +143,11 @@
 .dropdown {
   position: absolute;
   top: calc(100% + 4px);
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 151px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-height: 180px;
   overflow-y: auto;
   background: #ffffff;
@@ -163,6 +166,11 @@
 }
 
 .dropdown li:hover {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
   color: #11101c;
 }
 

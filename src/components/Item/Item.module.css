@@ -184,3 +184,8 @@
 .btn {
   margin-top: 48px;
 }
+.btn:hover {
+  background-color: #ffffff;
+  color: var(--main);
+  border-color: var(--main);
+}
