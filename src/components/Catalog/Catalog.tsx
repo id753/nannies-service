@@ -37,17 +37,19 @@ const NanniesList = () => {
   if (loading) return <div>Searching for nannies...</div>;
 
   return (
-    <div className={css.container}>
-      <Filter />
-      <ul className={css.list}>
-        {nannies.map((item, index) => (
-          <Item key={index} item={item} />
-        ))}
-      </ul>
-      <Button type="button" onClick={() => console.log("Load more")}>
-        Load more
-      </Button>
-    </div>
+    <>
+      <Filter className={css.filter} />
+      <div className={css.container}>
+        <ul className={css.list}>
+          {nannies.map((item, index) => (
+            <Item key={index} item={item} />
+          ))}
+        </ul>
+        <Button type="button" onClick={() => console.log("Load more")}>
+          Load more
+        </Button>
+      </div>
+    </>
   );
 };
 
