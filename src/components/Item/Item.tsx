@@ -8,6 +8,7 @@ import { Babysitter } from "@/src/types";
 import { calculateAge } from "@/src/utils/calculateAge";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Button from "../UI/Button/Button";
+import PopUp from "../PopUp/PopUp";
 
 interface ItemProps {
   item: Babysitter;
@@ -20,6 +21,9 @@ const Item = ({ item }: ItemProps) => {
     setIsExpanded((prev) => !prev);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <li className={css.container}>
       <div className={css.avatarWrapper}>
@@ -102,15 +106,13 @@ const Item = ({ item }: ItemProps) => {
               ))}
             </ul>
 
-            <Button
-              className={css.btn}
-              type="button"
-              onClick={() => console.log("Open Modal")}
-            >
+            <Button className={css.btn} type="button" onClick={openModal}>
               Make an appointment
             </Button>
           </>
         )}
+
+        {isModalOpen && <PopUp item={item} onClose={closeModal} />}
       </div>
     </li>
   );

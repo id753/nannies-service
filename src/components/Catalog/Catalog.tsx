@@ -7,6 +7,7 @@ import Item from "../Item/Item";
 import { Babysitter } from "@/src/types";
 import Filter from "../Filter/Filter";
 import Button from "../UI/Button/Button";
+import PopUp from "../PopUp/PopUp";
 
 const NanniesList = () => {
   const [nannies, setNannies] = useState<Babysitter[]>([]);
