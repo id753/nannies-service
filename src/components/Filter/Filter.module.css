@@ -1,0 +1,48 @@
+.filterContainer {
+  margin-bottom: 32px;
+}
+.title {
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #8a8a89;
+  margin-bottom: 8px;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.select {
+  width: 200px;
+  height: 40px;
+  padding: 0 12px;
+
+  border-radius: 8px;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  padding: 16px 157px 16px 18px;
+  width: 226px;
+  height: 48px;
+  background: #fff;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+.select option {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 111%;
+  color: rgba(17, 16, 28, 0.3);
+}
