@@ -1,7 +1,9 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { HeartIcon, LocationIcon, StarIcon } from "../Icons/Icons";
 import css from "./Item.module.css";
-import Image from "next/image";
 import { Babysitter } from "@/src/types";
 import { calculateAge } from "@/src/utils/calculateAge";
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -10,13 +12,19 @@ import Button from "../UI/Button/Button";
 interface ItemProps {
   item: Babysitter;
 }
+
 const Item = ({ item }: ItemProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = (e: React.MouseEvent) => {
+    setIsExpanded((prev) => !prev);
+  };
+
   return (
     <li className={css.container}>
       <div className={css.avatarWrapper}>
         <div className={css.avatar}>
           <Image
-            // todo /default-avatar
             src={item.avatar_url || "/default-avatar.png"}
             alt={item.name}
             width={96}
@@ -32,7 +40,6 @@ const Item = ({ item }: ItemProps) => {
         <div className={css.headerRow}>
           <div className={css.infoSummary}>
             <span className={css.tag}>Nanny</span>
-
             <div className={css.stats}>
               <p className={css.statItem}>
                 <LocationIcon /> {item.location}
@@ -46,7 +53,6 @@ const Item = ({ item }: ItemProps) => {
               </p>
             </div>
           </div>
-
           <button className={css.heartBtn}>
             <HeartIcon className={css.icon} />
           </button>
@@ -82,21 +88,29 @@ const Item = ({ item }: ItemProps) => {
 
         <p className={css.description}>{item.about}</p>
 
-        <Link href={`/nannies/${item.name}`} className={css.readMore}>
-          Read more
-        </Link>
-        <ul className={css.reviewsList}>
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-        </ul>
-        <Button
-          className={css.btn}
-          type="button"
-          onClick={() => console.log("Make an appointment")}
-        >
-          Make an appointment
-        </Button>
+        {!isExpanded && (
+          <button type="button" className={css.readMore} onClick={toggleExpand}>
+            Read more
+          </button>
+        )}
+
+        {isExpanded && (
+          <>
+            <ul className={css.reviewsList}>
+              {item.reviews.map((review, index) => (
+                <ReviewCard key={index} review={review} />
+              ))}
+            </ul>
+
+            <Button
+              className={css.btn}
+              type="button"
+              onClick={() => console.log("Open Modal")}
+            >
+              Make an appointment
+            </Button>
+          </>
+        )}
       </div>
     </li>
   );
