@@ -4,6 +4,8 @@ import css from "./Item.module.css";
 import Image from "next/image";
 import { Babysitter } from "@/src/types";
 import { calculateAge } from "@/src/utils/calculateAge";
+import ReviewCard from "../ReviewCard/ReviewCard";
+import Button from "../UI/Button/Button";
 
 interface ItemProps {
   item: Babysitter;
@@ -83,6 +85,18 @@ const Item = ({ item }: ItemProps) => {
         <Link href={`/nannies/${item.name}`} className={css.readMore}>
           Read more
         </Link>
+        <ul className={css.reviewsList}>
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+        </ul>
+        <Button
+          className={css.btn}
+          type="button"
+          onClick={() => console.log("Make an appointment")}
+        >
+          Make an appointment
+        </Button>
       </div>
     </li>
   );

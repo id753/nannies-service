@@ -44,8 +44,8 @@ const NanniesList = () => {
           <Item key={index} item={item} />
         ))}
       </ul>
-      <Button type="button" onClick={() => console.log("Open modal")}>
-        Read more
+      <Button type="button" onClick={() => console.log("Load more")}>
+        Load more
       </Button>
     </div>
   );
