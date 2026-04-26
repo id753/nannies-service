@@ -2,7 +2,7 @@
 import css from "./Catalog.module.css";
 import { useState, useEffect } from "react";
 import { ref, onValue } from "firebase/database";
-import { db } from "../../firebaseConfig";
+import { db } from "../../firebase/firebaseConfig";
 import Item from "../Item/Item";
 import { Babysitter } from "@/src/types";
 import Filter from "../Filter/Filter";

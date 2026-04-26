@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import PageLayoutHandler from "./../components/PageLayoutHandler/PageLayoutHandler";
+import { AuthProvider } from "../context/AuthContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-        <PageLayoutHandler>{children}</PageLayoutHandler>
+        <AuthProvider>
+          <PageLayoutHandler>{children}</PageLayoutHandler>
+        </AuthProvider>
       </body>
     </html>
   );

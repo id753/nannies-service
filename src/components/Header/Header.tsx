@@ -3,12 +3,15 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-
 import css from "./Header.module.css";
 import Modal from "../Modal/Modal";
 import { UserIcon } from "../Icons/Icons";
+import { useAuth } from "@/src/context/AuthContext";
+import { logOut } from "@/src/firebase/auth";
 
 const Header = () => {
+  const { user, isLoggedIn } = useAuth();
+
   const [modalType, setModalType] = useState<"login" | "register" | null>(null);
 
   const pathname = usePathname() ?? "";
@@ -16,10 +19,6 @@ const Header = () => {
   const isHome = pathname === "/";
   const isNannies = pathname.startsWith("/nannies");
   const isFavorites = pathname.startsWith("/favorites");
-
-  const isLoggedIn = false;
-  // const isLoggedIn = true;
-  const userName = "Ilona";
 
   const headerClasses = `${css.header} ${isHome ? css.homePage : css.colored}`;
 
@@ -52,8 +51,10 @@ const Header = () => {
       <div className={css.userAvatar}>
         <UserIcon />
       </div>
-      <span className={css.userName}>{userName}</span>
-      <button className={css.logoutBtn}>Log out</button>
+      <span className={css.userName}>{user?.displayName}</span>
+      <button className={css.logoutBtn} onClick={logOut}>
+        Log out
+      </button>
     </div>
   ) : (
     <div className={css.authButtons}>
