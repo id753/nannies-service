@@ -69,14 +69,13 @@
   padding: 16px 18px;
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
-  /* padding: 16px 380px 16px 18px; */
-
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 125%;
   color: #11101c;
 }
+
 .input::placeholder {
   font-family: var(--font-family);
   font-weight: 400;
@@ -86,18 +85,19 @@
   font-family: inherit;
 }
 .input:focus {
-  outline: none; /* Убирает синюю стандартную рамку браузера */
+  outline: none;
   border-color: var(--main);
 }
 .inputWrapper {
   position: relative;
   width: 100%;
+  padding-bottom: 18px;
 }
 
 .iconInside {
   position: absolute;
   right: 18px;
-  top: 50%;
+  top: calc(50% - 9px);
   transform: translateY(-50%);
   cursor: pointer;
   display: flex;
@@ -114,7 +114,7 @@
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 40px;
+  /* margin-top: 20px; */
 }
 
 .submitBtn:hover {
@@ -123,6 +123,23 @@
   border: 1px solid var(--main);
 }
 
-.errorText {
-  color: var(--main);
+.errorBorder {
+  border-color: #ef4444 !important;
+}
+
+.errorLabel {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  font-size: 12px;
+  line-height: 1;
+  color: #ef4444;
+}
+
+.firebaseError {
+  font-size: 14px;
+  color: #ef4444;
+  text-align: center;
+  height: 20px;
+  display: block;
 }

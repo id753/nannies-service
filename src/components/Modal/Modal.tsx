@@ -1,9 +1,27 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+import { signUp, logIn } from "@/src/firebase/auth";
 import { CloseIcon, EyeCloseIcon, EyeOpenIcon } from "../Icons/Icons";
 import css from "./Modal.module.css";
-import React, { useEffect, useState } from "react";
-import { signUp, logIn } from "@/src/firebase/auth";
+
+//  Понятная схема валидации
+const validationSchema = yup.object().shape({
+  email: yup.string().email("Invalid email").required("Email is required"),
+  password: yup
+    .string()
+    .min(6, "Min 6 characters")
+    .required("Password is required"),
+  name: yup.string().when("$isRegister", {
+    is: true,
+    then: (schema) => schema.required("Name is required"),
+    otherwise: (schema) => schema.notRequired(),
+  }),
+});
 
 interface ModalProps {
   onClose: () => void;
@@ -12,129 +30,118 @@ interface ModalProps {
 
 const Modal = ({ onClose, type }: ModalProps) => {
   const isLogin = type === "login";
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [firebaseError, setFirebaseError] = useState<string | null>(null);
 
-  // Стейты для полей формы
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
+  // Настройка формы
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+    context: { isRegister: type === "register" },
+    mode: "onTouched",
+  });
 
-  // Логика закрытия по ESC
+  // Закрытие по ESC
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
     };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError(null);
-
+  const onSubmit = async (data: any) => {
+    setFirebaseError(null);
     try {
       if (isLogin) {
-        await logIn(email, password);
+        await logIn(data.email, data.password);
       } else {
-        await signUp(email, password, name);
+        await signUp(data.email, data.password, data.name);
       }
       onClose();
     } catch (err: any) {
-      // Обработка типичных ошибок Firebase для пользователя
-      let message = "An error occurred. Please try again.";
-
+      //   обработка ошибок Firebase
       if (err.code === "auth/invalid-credential") {
-        message = "Invalid email or password.";
+        setFirebaseError("Wrong email or password");
       } else if (err.code === "auth/email-already-in-use") {
-        message = "This email is already registered.";
-      } else if (err.code === "auth/weak-password") {
-        message = "Password should be at least 6 characters.";
+        setFirebaseError("This email is already taken");
+      } else {
+        setFirebaseError("Something went wrong. Try again.");
       }
-
-      setError(message);
-      console.error("Auth error code:", err.code);
     }
   };
 
   return (
-    <div className={css.backdrop} onClick={handleBackdropClick}>
+    <div
+      className={css.backdrop}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <div className={css.modal}>
-        <button
-          onClick={onClose}
-          className={css.closeBtn}
-          type="button"
-          aria-label="Close modal"
-        >
+        <button onClick={onClose} className={css.closeBtn} type="button">
           <CloseIcon />
         </button>
 
         <h2 className={css.title}>{isLogin ? "Log In" : "Registration"}</h2>
-
         <p className={css.text}>
           {isLogin
-            ? "Welcome back! Please enter your credentials to access your account."
-            : "Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information."}
+            ? "Welcome back! Please enter your details."
+            : "Fill in the form to create an account."}
         </p>
 
-        <form className={css.form} onSubmit={handleSubmit}>
+        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+          {/* Поле NAME (только для регистрации) */}
           {!isLogin && (
             <div className={css.inputWrapper}>
               <input
-                type="text"
-                name="name"
+                {...register("name")}
                 placeholder="Name"
-                className={css.input}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
+                className={`${css.input} ${errors.name ? css.errorBorder : ""}`}
               />
+              {errors.name && (
+                <span className={css.errorLabel}>{errors.name.message}</span>
+              )}
             </div>
           )}
 
+          {/* Поле EMAIL */}
           <div className={css.inputWrapper}>
             <input
+              {...register("email")}
               type="email"
-              name="email"
               placeholder="Email"
-              className={css.input}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              className={`${css.input} ${errors.email ? css.errorBorder : ""}`}
             />
+            {errors.email && (
+              <span className={css.errorLabel}>{errors.email.message}</span>
+            )}
           </div>
 
+          {/* Поле PASSWORD */}
           <div className={css.inputWrapper}>
             <input
+              {...register("password")}
               type={showPassword ? "text" : "password"}
-              name="password"
               placeholder="Password"
-              className={css.input}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+              className={`${css.input} ${errors.password ? css.errorBorder : ""}`}
             />
             <span
               className={css.iconInside}
               onClick={() => setShowPassword(!showPassword)}
-              style={{ cursor: "pointer" }}
             >
               {showPassword ? <EyeOpenIcon /> : <EyeCloseIcon />}
             </span>
+            {errors.password && (
+              <span className={css.errorLabel}>{errors.password.message}</span>
+            )}
           </div>
 
-          {error && <p className={css.errorText}>{error}</p>}
+          {/* Ошибка от Firebase  */}
+          <p className={css.firebaseError}>
+            {firebaseError ? firebaseError : ""}
+          </p>
 
           <button type="submit" className={css.submitBtn}>
             {isLogin ? "Log In" : "Sign Up"}
