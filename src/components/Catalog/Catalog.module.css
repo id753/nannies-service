@@ -1,3 +1,8 @@
+.section {
+  background: #f3f3f3;
+  padding-top: 88px;
+}
+
 .container {
   background: #f3f3f3;
   display: flex;

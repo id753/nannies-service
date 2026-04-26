@@ -7,12 +7,12 @@ import Item from "../Item/Item";
 import { Babysitter } from "@/src/types";
 import Filter from "../Filter/Filter";
 import Button from "../UI/Button/Button";
-import PopUp from "../PopUp/PopUp";
 
 const NanniesList = () => {
   const [nannies, setNannies] = useState<Babysitter[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // firebase/database
   useEffect(() => {
     const nanniesRef = ref(db);
 
@@ -38,7 +38,7 @@ const NanniesList = () => {
   if (loading) return <div>Searching for nannies...</div>;
 
   return (
-    <>
+    <div className={css.section}>
       <Filter className={css.filter} />
       <div className={css.container}>
         <ul className={css.list}>
@@ -50,7 +50,7 @@ const NanniesList = () => {
           Load more
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 
