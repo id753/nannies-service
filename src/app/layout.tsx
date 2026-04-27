@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import PageLayoutHandler from "./../components/PageLayoutHandler/PageLayoutHandler";
 import { AuthProvider } from "../context/AuthContext";
+import ToasterProvider from "../providers/ToasterProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
         <AuthProvider>
           <PageLayoutHandler>{children}</PageLayoutHandler>
         </AuthProvider>
+        <ToasterProvider />
       </body>
     </html>
   );

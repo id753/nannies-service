@@ -1,4 +1,5 @@
 export interface Babysitter {
+  id?: string;
   name: string;
   avatar_url: string;
   birthday: string;

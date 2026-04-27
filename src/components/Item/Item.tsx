@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { HeartIcon, LocationIcon, StarIcon } from "../Icons/Icons";
 import css from "./Item.module.css";
@@ -9,6 +9,8 @@ import { calculateAge } from "@/src/utils/calculateAge";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Button from "../UI/Button/Button";
 import PopUp from "../PopUp/PopUp";
+import { auth } from "../../firebase/firebaseConfig";
+import { toast } from "sonner";
 
 interface ItemProps {
   item: Babysitter;
@@ -16,14 +18,48 @@ interface ItemProps {
 
 const Item = ({ item }: ItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleExpand = (e: React.MouseEvent) => {
-    setIsExpanded((prev) => !prev);
+  useEffect(() => {
+    const saved = localStorage.getItem("favorites");
+    if (saved) {
+      const favorites: Babysitter[] = JSON.parse(saved);
+
+      const isExist = favorites.some((fav) => fav.id === item.id);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsFavorite(isExist);
+    }
+  }, [item.id]);
+
+  const handleFavoriteClick = () => {
+    const currentUser = auth.currentUser;
+
+    if (!currentUser) {
+      toast.error("This functionality is available only for authorized users!");
+      return;
+    }
+
+    const saved = localStorage.getItem("favorites");
+    const favorites: Babysitter[] = JSON.parse(saved || "[]");
+
+    if (isFavorite) {
+      const updated = favorites.filter((fav) => fav.id !== item.id);
+      localStorage.setItem("favorites", JSON.stringify(updated));
+      setIsFavorite(false);
+      toast.success("Removed from favorites");
+    } else {
+      favorites.push(item);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      setIsFavorite(true);
+      toast.success("Added to favorites!");
+    }
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleExpand = () => setIsExpanded((prev) => !prev);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
   return (
     <li className={css.container}>
       <div className={css.avatarWrapper}>
@@ -57,8 +93,12 @@ const Item = ({ item }: ItemProps) => {
               </p>
             </div>
           </div>
-          <button className={css.heartBtn}>
-            <HeartIcon className={css.icon} />
+          <button
+            type="button"
+            onClick={handleFavoriteClick}
+            className={css.heartBtn}
+          >
+            <HeartIcon isFavorite={isFavorite} />
           </button>
         </div>
 
@@ -67,9 +107,7 @@ const Item = ({ item }: ItemProps) => {
         <div className={css.features}>
           <p className={css.featureItem}>
             Age:{" "}
-            <span className={`${css.accent} ${css.underlined}`}>
-              {calculateAge(item.birthday)}
-            </span>
+            <span className={css.accent}>{calculateAge(item.birthday)}</span>
           </p>
           <p className={css.featureItem}>
             Experience: <span className={css.accent}>{item.experience}</span>
@@ -99,17 +137,16 @@ const Item = ({ item }: ItemProps) => {
         )}
 
         {isExpanded && (
-          <>
+          <div className={css.expanded}>
             <ul className={css.reviewsList}>
               {item.reviews.map((review, index) => (
                 <ReviewCard key={index} review={review} />
               ))}
             </ul>
-
             <Button className={css.btn} type="button" onClick={openModal}>
               Make an appointment
             </Button>
-          </>
+          </div>
         )}
 
         {isModalOpen && <PopUp item={item} onClose={closeModal} />}
