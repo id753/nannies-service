@@ -1,9 +1,13 @@
 "use client";
 
-import css from "./PopUp.module.css";
-import { CloseIcon, TimeIcon } from "../Icons/Icons";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+import css from "./PopUp.module.css";
+import { CloseIcon, TimeIcon } from "../Icons/Icons";
 import Button from "../UI/Button/Button";
 import { Babysitter } from "@/src/types";
 import { generateTimeOptions } from "@/src/utils/generateTimeOptions";
@@ -13,9 +17,54 @@ interface ModalProps {
   item: Babysitter;
 }
 
+interface FormData {
+  address: string;
+  tel: string;
+  childAge: string;
+  parentName: string;
+  email: string;
+  comment: string;
+  meetingTime: string;
+}
+
+const validationSchema = yup.object().shape({
+  address: yup.string().required("Address is required"),
+  tel: yup
+    .string()
+    .required("Telephone is required")
+    .matches(/^\+380\d{9}$/, "Format: +380XXXXXXXXX"),
+  childAge: yup.string().required("Required"),
+  parentName: yup.string().required("Parent's name is required"),
+  email: yup.string().email("Invalid email").default(""),
+  comment: yup.string().default(""),
+  meetingTime: yup
+    .string()
+    .required("Please select a time")
+    .notOneOf(["Meeting time"], "Please select a time"),
+});
+
 const PopUp = ({ onClose, item }: ModalProps) => {
   const [open, setOpen] = useState(false);
   const [time, setTime] = useState("Meeting time");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    trigger,
+  } = useForm<FormData>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      tel: "+380",
+      meetingTime: "Meeting time",
+      email: "",
+      comment: "",
+      address: "",
+      parentName: "",
+      childAge: "",
+    },
+  });
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -25,19 +74,27 @@ const PopUp = ({ onClose, item }: ModalProps) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) onClose();
-  };
-
   const handleSelect = (label: string) => {
     setTime(label);
     setOpen(false);
+
+    setValue("meetingTime", label);
+    trigger("meetingTime");
   };
 
   const options = generateTimeOptions();
 
+  const onSubmit = (data: FormData) => {
+    const fullData = { ...data, nannyId: item.id };
+    console.log("Form Data:", fullData);
+    onClose();
+  };
+
   return (
-    <div className={css.backdrop} onClick={handleBackdropClick}>
+    <div
+      className={css.backdrop}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <div className={css.modal}>
         <button onClick={onClose} className={css.closeBtn} type="button">
           <CloseIcon />
@@ -46,8 +103,7 @@ const PopUp = ({ onClose, item }: ModalProps) => {
         <h3 className={css.title}>Make an appointment with a babysitter</h3>
         <p className={css.text}>
           Arranging a meeting with a caregiver for your child is the first step
-          to creating a safe and comfortable environment. Fill out the form
-          below so we can match you with the perfect care partner.
+          to creating a safe and comfortable environment.
         </p>
 
         <div className={css.avatarWrapper}>
@@ -64,50 +120,100 @@ const PopUp = ({ onClose, item }: ModalProps) => {
           </div>
         </div>
 
-        <form className={css.form} onSubmit={(e) => e.preventDefault()}>
+        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={css.inputGroup}>
-            <input type="text" placeholder="Address" className={css.input} />
-            <input type="text" placeholder="+380" className={css.input} />
-          </div>
-
-          <div className={css.inputGroup}>
-            <input
-              type="text"
-              placeholder="Child's age"
-              className={css.input}
-            />
-
-            <div className={css.timeSelector} onClick={() => setOpen(!open)}>
-              <div className={css.timeSelected}>{time}</div>
-              <div className={css.iconTime}>
-                <TimeIcon />
-              </div>
-
-              {open && (
-                <ul className={css.dropdown}>
-                  {options.map((opt) => (
-                    <li
-                      key={opt}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleSelect(opt);
-                      }}
-                    >
-                      {opt}
-                    </li>
-                  ))}
-                </ul>
+            <div className={css.fieldWrapper}>
+              <input
+                {...register("address")}
+                placeholder="Address"
+                className={css.input}
+              />
+              {errors.address && (
+                <span className={css.error}>{errors.address.message}</span>
+              )}
+            </div>
+            <div className={css.fieldWrapper}>
+              <input
+                {...register("tel")}
+                type="tel"
+                placeholder="+380"
+                className={css.input}
+              />
+              {errors.tel && (
+                <span className={css.error}>{errors.tel.message}</span>
               )}
             </div>
           </div>
 
-          <input
-            type="text"
-            placeholder="Father's or mother's name"
-            className={css.inputLong}
-          />
-          <input type="email" placeholder="Email" className={css.inputLong} />
-          <textarea placeholder="Comment" className={css.textarea}></textarea>
+          <div className={css.inputGroup}>
+            <div className={css.fieldWrapper}>
+              <input
+                {...register("childAge")}
+                placeholder="Child's age"
+                className={css.input}
+              />
+              {errors.childAge && (
+                <span className={css.error}>{errors.childAge.message}</span>
+              )}
+            </div>
+            <div className={css.fieldWrapper}>
+              <div className={css.timeSelector} onClick={() => setOpen(!open)}>
+                <span className={css.timeSelected}>{time}</span>
+                <div className={css.iconTime}>
+                  <TimeIcon />
+                </div>
+                {open && (
+                  <ul className={css.dropdown}>
+                    {options.map((opt) => (
+                      <li
+                        key={opt}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSelect(opt);
+                        }}
+                      >
+                        {opt}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {errors.meetingTime && (
+                <span className={css.error}>{errors.meetingTime.message}</span>
+              )}
+            </div>
+          </div>
+
+          <div className={css.fieldWrapper}>
+            <input
+              {...register("parentName")}
+              placeholder="Father's or mother's name"
+              className={css.inputLong}
+            />
+            {errors.parentName && (
+              <span className={css.error}>{errors.parentName.message}</span>
+            )}
+          </div>
+
+          <div className={css.fieldWrapper}>
+            <input
+              {...register("email")}
+              type="email"
+              placeholder="Email"
+              className={css.inputLong}
+            />
+            {errors.email && (
+              <span className={css.error}>{errors.email.message}</span>
+            )}
+          </div>
+
+          <div className={css.fieldWrapper}>
+            <textarea
+              {...register("comment")}
+              placeholder="Comment"
+              className={css.textarea}
+            ></textarea>
+          </div>
 
           <Button type="submit" className={css.submitBtn}>
             Send
