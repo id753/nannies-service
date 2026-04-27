@@ -5,31 +5,33 @@ import React, { useState } from "react";
 interface FilterProps {
   className?: string;
   onClick?: () => void;
+  onChange: (value: string) => void;
 }
 
-const Filter = ({ className = "" }: FilterProps) => {
+const Filter = ({ onChange, className = "" }: FilterProps) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("A to Z");
+  const [label, setLabel] = useState("A to Z");
 
   const options = [
-    { label: "A to Z", value: "A to Z" },
-    { label: "Z to A", value: "Z to A" },
-    { label: "Less than 10$", value: "Less" },
-    { label: "Greater than 10$", value: "Greater" },
-    { label: "Popular", value: "Popular" },
-    { label: "Not popular", value: "Not popular" },
-    { label: "Show all", value: "Show all" },
+    { label: "A to Z", value: "A-Z" },
+    { label: "Z to A", value: "Z-A" },
+    { label: "Less than 10$", value: "less-10" },
+    { label: "Greater than 10$", value: "greater-10" },
+    { label: "Popular", value: "popular" },
+    { label: "Not popular", value: "not-popular" },
+    { label: "Show all", value: "all" },
   ];
 
-  const handleSelect = (label: string) => {
-    setValue(label);
+  const handleSelect = (selectedLabel: string, selectedValue: string) => {
+    setLabel(selectedLabel);
     setOpen(false);
+    onChange(selectedValue);
   };
 
   return (
     <div className={`${css.filterContainer} ${className}`}>
       <div className={css.select} onClick={() => setOpen(!open)}>
-        <div className={css.selected}>{value}</div>
+        <div className={css.selected}>{label}</div>
         <div className={css.icon}>
           <ArrowDownIcon />
         </div>
@@ -38,7 +40,10 @@ const Filter = ({ className = "" }: FilterProps) => {
       {open && (
         <ul className={css.dropdown}>
           {options.map((opt) => (
-            <li key={opt.value} onClick={() => handleSelect(opt.label)}>
+            <li
+              key={opt.value}
+              onClick={() => handleSelect(opt.label, opt.value)}
+            >
               {opt.label}
             </li>
           ))}

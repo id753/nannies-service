@@ -35,8 +35,8 @@ const validationSchema = yup.object().shape({
     .matches(/^\+380\d{9}$/, "Format: +380XXXXXXXXX"),
   childAge: yup.string().required("Required"),
   parentName: yup.string().required("Parent's name is required"),
-  email: yup.string().email("Invalid email").default(""),
-  comment: yup.string().default(""),
+  email: yup.string().email("Invalid email").required("Email is equired"),
+  comment: yup.string().required("Required"),
   meetingTime: yup
     .string()
     .required("Please select a time")
@@ -213,6 +213,9 @@ const PopUp = ({ onClose, item }: ModalProps) => {
               placeholder="Comment"
               className={css.textarea}
             ></textarea>
+            {errors.email && (
+              <span className={css.error}>{errors.comment.message}</span>
+            )}
           </div>
 
           <Button type="submit" className={css.submitBtn}>

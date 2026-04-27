@@ -19,3 +19,7 @@
   margin-top: 90px;
   margin-left: 96px;
 }
+.btn:hover {
+  background-color: var(--white);
+  color: var(--main);
+}
