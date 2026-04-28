@@ -20,6 +20,7 @@ const Item = ({ item }: ItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMoreLoading, setIsMoreLoading] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("favorites");
@@ -59,6 +60,14 @@ const Item = ({ item }: ItemProps) => {
   const toggleExpand = () => setIsExpanded((prev) => !prev);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const handleLoadMore = () => {
+    setIsMoreLoading(true);
+    setTimeout(() => {
+      openModal();
+      setIsMoreLoading(false);
+    }, 5000);
+  };
 
   return (
     <li className={css.container}>
@@ -143,8 +152,17 @@ const Item = ({ item }: ItemProps) => {
                 <ReviewCard key={index} review={review} />
               ))}
             </ul>
-            <Button className={css.btn} type="button" onClick={openModal}>
-              Make an appointment
+            <Button
+              disabled={isMoreLoading}
+              className={css.btn}
+              type="button"
+              onClick={handleLoadMore}
+            >
+              {isMoreLoading ? (
+                <span className={css.loader}></span>
+              ) : (
+                "Make an appointment"
+              )}
             </Button>
           </div>
         )}

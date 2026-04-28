@@ -8,8 +8,8 @@ import * as yup from "yup";
 import { signUp, logIn } from "@/src/firebase/auth";
 import { CloseIcon, EyeCloseIcon, EyeOpenIcon } from "../Icons/Icons";
 import css from "./Modal.module.css";
+import { toast } from "sonner";
 
-//  Понятная схема валидации
 const validationSchema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
   password: yup
@@ -33,18 +33,16 @@ const Modal = ({ onClose, type }: ModalProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [firebaseError, setFirebaseError] = useState<string | null>(null);
 
-  // Настройка формы
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(validationSchema),
     context: { isRegister: type === "register" },
     mode: "onTouched",
   });
 
-  // Закрытие по ESC
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -58,19 +56,23 @@ const Modal = ({ onClose, type }: ModalProps) => {
     try {
       if (isLogin) {
         await logIn(data.email, data.password);
+        toast.success("Welcome back!");
       } else {
         await signUp(data.email, data.password, data.name);
+        toast.success("Registration successful!");
       }
       onClose();
     } catch (err: any) {
-      //   обработка ошибок Firebase
+      let errorMessage = "Something went wrong. Try again.";
+
       if (err.code === "auth/invalid-credential") {
-        setFirebaseError("Wrong email or password");
+        errorMessage = "Wrong email or password";
       } else if (err.code === "auth/email-already-in-use") {
-        setFirebaseError("This email is already taken");
-      } else {
-        setFirebaseError("Something went wrong. Try again.");
+        errorMessage = "This email is already taken";
       }
+
+      setFirebaseError(errorMessage);
+      // toast.error(errorMessage);
     }
   };
 
@@ -143,8 +145,18 @@ const Modal = ({ onClose, type }: ModalProps) => {
             {firebaseError ? firebaseError : ""}
           </p>
 
-          <button type="submit" className={css.submitBtn}>
-            {isLogin ? "Log In" : "Sign Up"}
+          <button
+            type="submit"
+            className={css.submitBtn}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <span className={css.loader}></span>
+            ) : isLogin ? (
+              "Log In"
+            ) : (
+              "Sign Up"
+            )}
           </button>
         </form>
       </div>

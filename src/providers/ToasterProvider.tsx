@@ -9,7 +9,7 @@ export default function ToasterProvider() {
       // expand={true}
       richColors
       closeButton
-      duration={1000}
+      duration={2000}
       visibleToasts={3}
       style={{ top: "80px" }}
       toastOptions={{

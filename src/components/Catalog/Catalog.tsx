@@ -7,12 +7,14 @@ import Item from "../Item/Item";
 import { Babysitter } from "@/src/types";
 import Filter from "../Filter/Filter";
 import Button from "../UI/Button/Button";
+import { toast } from "sonner";
 
 const NanniesList = () => {
   const [nannies, setNannies] = useState<Babysitter[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>("all");
   const [limit, setLimit] = useState(3);
+  const [isMoreLoading, setIsMoreLoading] = useState(false);
 
   useEffect(() => {
     const nanniesRef = ref(db);
@@ -65,7 +67,12 @@ const NanniesList = () => {
   }, [sortedNannies, limit]);
 
   const handleLoadMore = () => {
-    setLimit((prev) => prev + 3);
+    setIsMoreLoading(true);
+
+    setTimeout(() => {
+      setLimit((prev) => prev + 3);
+      setIsMoreLoading(false);
+    }, 500);
   };
 
   if (loading)
@@ -87,8 +94,13 @@ const NanniesList = () => {
         )}
 
         {sortedNannies.length > limit && (
-          <Button type="button" onClick={handleLoadMore} className={css.btn}>
-            Load more
+          <Button
+            type="button"
+            onClick={handleLoadMore}
+            className={css.btn}
+            disabled={isMoreLoading}
+          >
+            {isMoreLoading ? <span className={css.loader}></span> : "Load more"}
           </Button>
         )}
       </div>
