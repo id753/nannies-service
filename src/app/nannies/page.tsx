@@ -1,5 +1,4 @@
-// src\app\nannies\page.tsx
-import Catalog from "../../components/Catalog/Catalog";
+import Catalog from "@/src/components/Catalog/Catalog";
 
 const Nannies = async () => {
   return (

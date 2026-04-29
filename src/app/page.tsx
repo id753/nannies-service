@@ -6,7 +6,6 @@ import { ArrowIcon, CheckIcon } from "@/src/components/Icons/Icons";
 export default function Home() {
   return (
     <section className={css.hero}>
-      {/* Левая часть с текстом */}
       <div className={css.leftSide}>
         <div className={css.content}>
           <h1 className={css.title}>Make Life Easier for the Family:</h1>
@@ -21,9 +20,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Правая часть с картинкой */}
       <div className={css.rightSide}>
-        {/* Здесь bg image */}
         <div className={css.statsBadge}>
           <div className={css.checkIcon}>
             <CheckIcon />

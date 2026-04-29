@@ -15,15 +15,17 @@ import { auth } from "@/src/firebase/firebaseConfig";
 
 interface ItemProps {
   item: Babysitter;
+  onFavoriteChange?: (id: string, isFav: boolean) => void;
 }
 
-const Item = ({ item }: ItemProps) => {
+const Item = ({ item, onFavoriteChange }: ItemProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMoreLoading, setIsMoreLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
+  // 1. Слушаем состояние авторизации
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -33,14 +35,14 @@ const Item = ({ item }: ItemProps) => {
 
   const storageKey = user ? `favorites_${user.uid}` : null;
 
+  // 2. Проверяем, находится ли айтем в избранном при загрузке или смене юзера
   useEffect(() => {
     if (!storageKey) {
       setIsFavorite(false);
       return;
     }
 
-    const saved = localStorage.getItem(storageKey);
-
+    const saved = localStorage.getItem(storageKey || "");
     if (saved) {
       const favorites: Babysitter[] = JSON.parse(saved);
       setIsFavorite(favorites.some((fav) => fav.id === item.id));
@@ -49,25 +51,35 @@ const Item = ({ item }: ItemProps) => {
     }
   }, [item.id, storageKey]);
 
+  // 3. Обработка клика по сердечку
   const handleFavoriteClick = () => {
     if (!user || !storageKey) {
       toast.error("This functionality is available only for authorized users!");
       return;
     }
 
-    const saved = localStorage.getItem(storageKey);
+    const saved = localStorage.getItem(storageKey || "");
     const favorites: Babysitter[] = JSON.parse(saved || "[]");
+    const newFavoriteStatus = !isFavorite;
 
     if (isFavorite) {
+      // Удаляем
       const updated = favorites.filter((fav) => fav.id !== item.id);
       localStorage.setItem(storageKey, JSON.stringify(updated));
-      setIsFavorite(false);
       toast.success("Removed from favorites");
     } else {
+      // Добавляем
       favorites.push(item);
       localStorage.setItem(storageKey, JSON.stringify(favorites));
-      setIsFavorite(true);
       toast.success("Added to favorites!");
+    }
+
+    // Обновляем локальный стейт
+    setIsFavorite(newFavoriteStatus);
+
+    // Уведомляем родителя (нужно для страницы Favorites)
+    if (onFavoriteChange) {
+      onFavoriteChange(item.id, newFavoriteStatus);
     }
   };
 

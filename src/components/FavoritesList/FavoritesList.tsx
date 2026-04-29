@@ -1,23 +1,26 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { ref, onValue } from "firebase/database";
-import { db } from "../../firebase/firebaseConfig";
+import { useEffect, useState, useMemo } from "react";
+import { auth } from "@/src/firebase/firebaseConfig";
 import NanniesList from "../NanniesList/NanniesList";
 import { Babysitter } from "@/src/types";
 
-const Catalog = () => {
-  const [nannies, setNannies] = useState<Babysitter[]>([]);
-  const [loading, setLoading] = useState(true);
+export const FavoritesList = () => {
+  const [favorites, setFavorites] = useState<Babysitter[]>([]);
   const [filter, setFilter] = useState("all");
   const [limit, setLimit] = useState(3);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onValue(ref(db), (snap) => {
-      const data = snap.val();
-      if (data) {
-        const list = Array.isArray(data) ? data : Object.values(data);
-        setNannies(list as Babysitter[]);
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const storageKey = `favorites_${user.uid}`;
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          setFavorites(JSON.parse(saved));
+        }
+      } else {
+        setFavorites([]);
       }
       setLoading(false);
     });
@@ -25,13 +28,15 @@ const Catalog = () => {
   }, []);
 
   const sorted = useMemo(() => {
-    let result = [...nannies];
+    let result = [...favorites];
 
     switch (filter) {
       case "A-Z":
+      case "asc":
         result.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case "Z-A":
+      case "desc":
         result.sort((a, b) => b.name.localeCompare(a.name));
         break;
       case "popular":
@@ -51,9 +56,15 @@ const Catalog = () => {
     }
 
     return result;
-  }, [nannies, filter]);
+  }, [favorites, filter]);
 
   const visible = sorted.slice(0, limit);
+
+  const handleRemove = (id: string, isFav: boolean) => {
+    if (!isFav) {
+      setFavorites((prev) => prev.filter((n) => n.id !== id));
+    }
+  };
 
   return (
     <NanniesList
@@ -66,9 +77,9 @@ const Catalog = () => {
         setLimit(3);
       }}
       onLoadMore={() => setLimit((prev) => prev + 3)}
+      onItemChange={handleRemove}
       isMoreLoading={false}
+      emptyMessage="You haven't added any favorites yet."
     />
   );
 };
-
-export default Catalog;

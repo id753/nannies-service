@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import css from "./Header.module.css";
 import Modal from "../Modal/Modal";
 import { UserIcon } from "../Icons/Icons";
 import { useAuth } from "@/src/context/AuthContext";
 import { logOut } from "@/src/firebase/auth";
+import { toast } from "sonner";
 
 const Header = () => {
   const { user, isLoggedIn } = useAuth();
@@ -19,6 +20,18 @@ const Header = () => {
   const isHome = pathname === "/";
   const isNannies = pathname.startsWith("/nannies");
   const isFavorites = pathname.startsWith("/favorites");
+
+  const router = useRouter();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      router.push("/");
+      toast.success("Logout success");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   const headerClasses = `${css.header} ${isHome ? css.homePage : css.colored}`;
 
@@ -52,7 +65,7 @@ const Header = () => {
         <UserIcon />
       </div>
       <span className={css.userName}>{user?.displayName}</span>
-      <button className={css.logoutBtn} onClick={logOut}>
+      <button className={css.logoutBtn} onClick={handleLogOut}>
         Log out
       </button>
     </div>
