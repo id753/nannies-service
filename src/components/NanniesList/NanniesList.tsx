@@ -5,6 +5,7 @@ import Item from "../Item/Item";
 import { Babysitter } from "@/src/types";
 import Filter from "../Filter/Filter";
 import Button from "../UI/Button/Button";
+import Loader from "../UI/Loader/Loader";
 
 interface NanniesListProps {
   nannies: Babysitter[];
@@ -29,7 +30,7 @@ const NanniesList = ({
   isLoading,
   emptyMessage,
 }: NanniesListProps) => {
-  if (isLoading) return <div className={css.loader}>Loading...</div>;
+  if (isLoading) return <Loader />;
 
   return (
     <div className={css.section}>
