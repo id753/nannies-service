@@ -11,6 +11,7 @@ import { CloseIcon, TimeIcon } from "../Icons/Icons";
 import Button from "../UI/Button/Button";
 import { Babysitter } from "@/src/types";
 import { generateTimeOptions } from "@/src/utils/generateTimeOptions";
+import { toast } from "sonner";
 
 interface ModalProps {
   onClose: () => void;
@@ -28,24 +29,25 @@ interface FormData {
 }
 
 const validationSchema = yup.object().shape({
-  address: yup.string().required("Address is required"),
-  tel: yup
-    .string()
-    .required("Telephone is required")
-    .matches(/^\+380\d{9}$/, "Format: +380XXXXXXXXX"),
-  childAge: yup.string().required("Required"),
-  parentName: yup.string().required("Parent's name is required"),
-  email: yup.string().email("Invalid email").required("Email is equired"),
-  comment: yup.string().required("Required"),
-  meetingTime: yup
-    .string()
-    .required("Please select a time")
-    .notOneOf(["Meeting time"], "Please select a time"),
+  // address: yup.string().required("Address is required"),
+  // tel: yup
+  //   .string()
+  //   .required("Telephone is required")
+  //   .matches(/^\+380\d{9}$/, "Format: +380XXXXXXXXX"),
+  // childAge: yup.string().required("Required"),
+  // parentName: yup.string().required("Parent's name is required"),
+  // email: yup.string().email("Invalid email").required("Email is equired"),
+  // comment: yup.string().required("Required"),
+  // meetingTime: yup
+  //   .string()
+  //   .required("Please select a time")
+  //   .notOneOf(["Meeting time"], "Please select a time"),
 });
 
 const PopUp = ({ onClose, item }: ModalProps) => {
   const [open, setOpen] = useState(false);
   const [time, setTime] = useState("Meeting time");
+  const [isMoreLoading, setIsMoreLoading] = useState(false);
 
   const {
     register,
@@ -85,9 +87,14 @@ const PopUp = ({ onClose, item }: ModalProps) => {
   const options = generateTimeOptions();
 
   const onSubmit = (data: FormData) => {
+    setIsMoreLoading(true);
     const fullData = { ...data, nannyId: item.id };
-    console.log("Form Data:", fullData);
-    onClose();
+    setTimeout(() => {
+      console.log("Form Data:", fullData);
+      setIsMoreLoading(false);
+      toast.success("Great! The nanny will contact you soon.");
+      onClose();
+    }, 1500);
   };
 
   return (
@@ -218,8 +225,12 @@ const PopUp = ({ onClose, item }: ModalProps) => {
             )}
           </div>
 
-          <Button type="submit" className={css.submitBtn}>
-            Send
+          <Button
+            disabled={isMoreLoading}
+            type="submit"
+            className={css.submitBtn}
+          >
+            {isMoreLoading ? <span className={css.loader}></span> : "Send"}
           </Button>
         </form>
       </div>

@@ -66,7 +66,7 @@ const Item = ({ item }: ItemProps) => {
     setTimeout(() => {
       openModal();
       setIsMoreLoading(false);
-    }, 5000);
+    }, 500);
   };
 
   return (
