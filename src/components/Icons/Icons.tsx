@@ -66,16 +66,16 @@ export const CloseIcon = ({ className }: IconProps) => {
       <path
         d="M24 8L8 24"
         stroke="#11101C"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M8 8L24 24"
         stroke="#11101C"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -114,20 +114,20 @@ export const EyeOpenIcon = ({ className }: IconProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_31_2517)">
+      <g clipPath="url(#clip0_31_2517)">
         <path
           d="M0.833252 10.0002C0.833252 10.0002 4.16659 3.3335 9.99992 3.3335C15.8333 3.3335 19.1666 10.0002 19.1666 10.0002C19.1666 10.0002 15.8333 16.6668 9.99992 16.6668C4.16659 16.6668 0.833252 10.0002 0.833252 10.0002Z"
           stroke="#11101C"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
           stroke="#11101C"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -148,20 +148,20 @@ export const EyeCloseIcon = ({ className }: IconProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_31_2514)">
+      <g clipPath="url(#clip0_31_2514)">
         <path
           d="M14.9499 14.9502C13.5254 16.036 11.7908 16.6376 9.99992 16.6668C4.16659 16.6668 0.833252 10.0002 0.833252 10.0002C1.86983 8.06843 3.30753 6.38069 5.04992 5.05018M8.24992 3.53352C8.82353 3.39925 9.41081 3.33213 9.99992 3.33352C15.8333 3.33352 19.1666 10.0002 19.1666 10.0002C18.6607 10.9465 18.0575 11.8375 17.3666 12.6585M11.7666 11.7668C11.5377 12.0125 11.2617 12.2095 10.955 12.3461C10.6484 12.4828 10.3173 12.5562 9.98166 12.5622C9.64599 12.5681 9.31256 12.5063 9.00126 12.3806C8.68997 12.2549 8.40719 12.0677 8.16979 11.8303C7.9324 11.5929 7.74525 11.3101 7.61951 10.9988C7.49377 10.6875 7.43202 10.3541 7.43795 10.0184C7.44387 9.68276 7.51734 9.35172 7.65398 9.04506C7.79062 8.73839 7.98763 8.46239 8.23325 8.23352"
           stroke="#11101C"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M0.833252 0.833496L19.1666 19.1668"
           stroke="#11101C"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -182,20 +182,20 @@ export const LocationIcon = ({ className }: IconProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_31_2509)">
+      <g clipPath="url(#clip0_31_2509)">
         <path
           d="M14 6.66651C14 11.3332 8 15.3332 8 15.3332C8 15.3332 2 11.3332 2 6.66651C2 5.07521 2.63214 3.54908 3.75736 2.42386C4.88258 1.29864 6.4087 0.666504 8 0.666504C9.5913 0.666504 11.1174 1.29864 12.2426 2.42386C13.3679 3.54908 14 5.07521 14 6.66651Z"
           stroke="#11101C"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M8 8.6665C9.10457 8.6665 10 7.77107 10 6.6665C10 5.56193 9.10457 4.6665 8 4.6665C6.89543 4.6665 6 5.56193 6 6.6665C6 7.77107 6.89543 8.6665 8 8.6665Z"
           stroke="#11101C"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -219,7 +219,7 @@ export const StarIcon = ({ className }: IconProps) => {
         d="M8.88965 4.12598C9.0488 4.42749 9.33887 4.6381 9.6748 4.69629L13.4746 5.35254L10.7871 8.12012C10.5496 8.36469 10.4388 8.7055 10.4873 9.04297L11.0361 12.8604L7.5752 11.1592L7.45801 11.1094C7.21993 11.0248 6.95976 11.0248 6.72168 11.1094L6.60449 11.1592L3.14258 12.8604L3.69238 9.04297C3.74091 8.7055 3.6301 8.36469 3.39258 8.12012L0.704102 5.35254L4.50488 4.69629C4.84082 4.6381 5.13088 4.42749 5.29004 4.12598L7.08984 0.714844L8.88965 4.12598Z"
         fill="#FFC531"
         stroke="#FFC531"
-        stroke-width="1.2"
+        strokeWidth="1.2"
       />
     </svg>
   );
@@ -254,9 +254,9 @@ export const ArrowDownIcon = ({ className }: IconProps) => {
       <path
         d="M1 1L6 6L11 1"
         stroke="#FBFBFB"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -271,20 +271,20 @@ export const TimeIcon = ({ className }: IconProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_31_2391)">
+      <g clipPath="url(#clip0_31_2391)">
         <path
           d="M10.0001 18.3332C14.6025 18.3332 18.3334 14.6022 18.3334 9.99984C18.3334 5.39746 14.6025 1.6665 10.0001 1.6665C5.39771 1.6665 1.66675 5.39746 1.66675 9.99984C1.66675 14.6022 5.39771 18.3332 10.0001 18.3332Z"
           stroke="#11101C"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M10 5V10L13.3333 11.6667"
           stroke="#11101C"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>

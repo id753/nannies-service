@@ -9,8 +9,9 @@ import { calculateAge } from "@/src/utils/calculateAge";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Button from "../UI/Button/Button";
 import PopUp from "../PopUp/PopUp";
-import { auth } from "../../firebase/firebaseConfig";
+import { onAuthStateChanged, User } from "firebase/auth";
 import { toast } from "sonner";
+import { auth } from "@/src/firebase/firebaseConfig";
 
 interface ItemProps {
   item: Babysitter;
@@ -21,37 +22,50 @@ const Item = ({ item }: ItemProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMoreLoading, setIsMoreLoading] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("favorites");
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const storageKey = user ? `favorites_${user.uid}` : null;
+
+  useEffect(() => {
+    if (!storageKey) {
+      setIsFavorite(false);
+      return;
+    }
+
+    const saved = localStorage.getItem(storageKey);
+
     if (saved) {
       const favorites: Babysitter[] = JSON.parse(saved);
-
-      const isExist = favorites.some((fav) => fav.id === item.id);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsFavorite(isExist);
+      setIsFavorite(favorites.some((fav) => fav.id === item.id));
+    } else {
+      setIsFavorite(false);
     }
-  }, [item.id]);
+  }, [item.id, storageKey]);
 
   const handleFavoriteClick = () => {
-    const currentUser = auth.currentUser;
-
-    if (!currentUser) {
+    if (!user || !storageKey) {
       toast.error("This functionality is available only for authorized users!");
       return;
     }
 
-    const saved = localStorage.getItem("favorites");
+    const saved = localStorage.getItem(storageKey);
     const favorites: Babysitter[] = JSON.parse(saved || "[]");
 
     if (isFavorite) {
       const updated = favorites.filter((fav) => fav.id !== item.id);
-      localStorage.setItem("favorites", JSON.stringify(updated));
+      localStorage.setItem(storageKey, JSON.stringify(updated));
       setIsFavorite(false);
       toast.success("Removed from favorites");
     } else {
       favorites.push(item);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
+      localStorage.setItem(storageKey, JSON.stringify(favorites));
       setIsFavorite(true);
       toast.success("Added to favorites!");
     }
