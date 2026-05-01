@@ -11,6 +11,11 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Nanny Services",
   description: "Find Babysitters Online for All Occasions",

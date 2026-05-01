@@ -25,7 +25,6 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
   const [isMoreLoading, setIsMoreLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
-  // 1. Слушаем состояние авторизации
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -35,7 +34,6 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
 
   const storageKey = user ? `favorites_${user.uid}` : null;
 
-  // 2. Проверяем, находится ли айтем в избранном при загрузке или смене юзера
   useEffect(() => {
     if (!storageKey) {
       setIsFavorite(false);
@@ -51,7 +49,6 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
     }
   }, [item.id, storageKey]);
 
-  // 3. Обработка клика по сердечку
   const handleFavoriteClick = () => {
     if (!user || !storageKey) {
       toast.error("This functionality is available only for authorized users!");
@@ -63,21 +60,17 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
     const newFavoriteStatus = !isFavorite;
 
     if (isFavorite) {
-      // Удаляем
       const updated = favorites.filter((fav) => fav.id !== item.id);
       localStorage.setItem(storageKey, JSON.stringify(updated));
       toast.success("Removed from favorites");
     } else {
-      // Добавляем
       favorites.push(item);
       localStorage.setItem(storageKey, JSON.stringify(favorites));
       toast.success("Added to favorites!");
     }
 
-    // Обновляем локальный стейт
     setIsFavorite(newFavoriteStatus);
 
-    // Уведомляем родителя (нужно для страницы Favorites)
     if (onFavoriteChange) {
       onFavoriteChange(item.id, newFavoriteStatus);
     }

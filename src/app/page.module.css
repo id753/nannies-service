@@ -1,8 +1,15 @@
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Ровно две равные колонки */
+  grid-template-columns: 1fr 1fr;
   min-height: 100vh;
   width: 100%;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
 }
 
 .leftSide {
@@ -13,15 +20,27 @@
 }
 
 .rightSide {
+  position: relative;
   background-image: linear-gradient(rgba(18, 20, 23, 0.6)), url("/homeBg.jpg");
-
   background-size: cover;
   background-position: center;
+  min-height: 400px;
 }
 
 .content {
   max-width: 517px;
   margin: 163px 64px 96px 96px;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    /* margin: 80px 40px; */
+  }
+}
+@media (max-width: 600px) {
+  .content {
+    /* margin: 40px 20px; */
+  }
 }
 
 .title {
@@ -31,8 +50,13 @@
   line-height: 100%;
   letter-spacing: -0.03em;
   color: #fbfbfb;
-
   margin-bottom: 28px;
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 48px;
+  }
 }
 
 .text {
@@ -42,8 +66,14 @@
   line-height: 107%;
   letter-spacing: -0.02em;
   color: #fbfbfb;
-
   margin-bottom: 64px;
+}
+
+@media (max-width: 900px) {
+  .text {
+    font-size: 20px;
+    margin-bottom: 32px;
+  }
 }
 
 .button {
@@ -60,12 +90,12 @@
   font-size: 20px;
   line-height: 120%;
   letter-spacing: -0.01em;
-  color: #fbfbfb;
-
   background: transparent;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .arrow {
@@ -79,33 +109,44 @@
   transform: rotate(55deg);
 }
 
-.arrow svg {
-  fill: currentColor;
-}
-
-/* Белая плашка со статистикой */
 .statsBadge {
   position: absolute;
   bottom: 50px;
   right: 50px;
-
   width: 294px;
   height: 118px;
-
   background: white;
   padding: 32px;
-
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 16px;
 }
+
+@media (max-width: 1024px) {
+  .statsBadge {
+    bottom: 20px;
+    right: 20px;
+    width: 260px;
+    padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .statsBadge {
+    position: static;
+    /* width: 100%; */
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+
 .checkIcon {
   background: var(--main);
   width: 54px;
   height: 54px;
   padding: 19.5px 17px;
   border-radius: 13px;
+  flex-shrink: 0;
 }
 .statsLabel {
   font-family: var(--font-family);

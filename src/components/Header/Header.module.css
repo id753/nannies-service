@@ -19,11 +19,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   height: 88px;
   padding: 0 96px;
-
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    /* padding: 0 20px; */
+  }
 }
 
 .logo {
@@ -44,16 +53,27 @@
   transform: translateX(-50%);
 }
 
-.navHome {
-  position: static;
-}
-
 .navigation {
   display: flex;
   gap: 40px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 1024px) {
+  .navigation {
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .navDefault {
+    position: static;
+    transform: none;
+  }
+  .navigation {
+    gap: 15px;
+  }
 }
 
 .navigation a {
@@ -75,14 +95,18 @@
   border-radius: 50%;
 }
 
-/* ПРАВАЯ ЧАСТЬ */
 .rightSide {
   display: flex;
   align-items: center;
   gap: 92px;
 }
 
-/* USER */
+@media (max-width: 1024px) {
+  .rightSide {
+    gap: 30px;
+  }
+}
+
 .userMenu {
   display: flex;
   align-items: center;
@@ -106,38 +130,58 @@
   margin-right: 24px;
 }
 
-/* КНОПКИ */
+@media (max-width: 768px) {
+  .userName {
+    display: none;
+  }
+}
+
 .authButtons {
   display: flex;
   gap: 8px;
 }
 
 .loginBtn,
-.logoutBtn {
-  border: 1px solid rgba(251, 251, 251, 0.4);
-  border-radius: 30px;
-  padding: 10px 24px;
-  background: transparent;
-  color: white;
-  cursor: pointer;
-}
-.loginBtn:hover,
-.logoutBtn:hover {
-  background: var(--main);
-  color: white;
-  border-color: transparent;
-}
-
+.logoutBtn,
 .regBtn {
   border-radius: 30px;
   padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.loginBtn,
+.logoutBtn {
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  background: transparent;
+  color: white;
+}
+
+.loginBtn:hover,
+.logoutBtn:hover {
+  background: #ffffff;
+  color: var(--main);
+  border-color: #ffffff;
+}
+
+.regBtn {
   background: var(--main);
   color: white;
-  border: none;
-  cursor: pointer;
+  border: 1px solid var(--main);
 }
 .regBtn:hover {
   background-color: #ffffff;
   color: var(--main);
-  border-color: var(--main);
+  border-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .loginBtn,
+  .logoutBtn,
+  .regBtn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
