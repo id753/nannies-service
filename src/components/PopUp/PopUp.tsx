@@ -29,19 +29,19 @@ interface FormData {
 }
 
 const validationSchema = yup.object().shape({
-  // address: yup.string().required("Address is required"),
-  // tel: yup
-  //   .string()
-  //   .required("Telephone is required")
-  //   .matches(/^\+380\d{9}$/, "Format: +380XXXXXXXXX"),
-  // childAge: yup.string().required("Required"),
-  // parentName: yup.string().required("Parent's name is required"),
-  // email: yup.string().email("Invalid email").required("Email is equired"),
-  // comment: yup.string().required("Required"),
-  // meetingTime: yup
-  //   .string()
-  //   .required("Please select a time")
-  //   .notOneOf(["Meeting time"], "Please select a time"),
+  address: yup.string().required("Address is required"),
+  tel: yup
+    .string()
+    .required("Telephone is required")
+    .matches(/^\+380\d{9}$/, "Format: +380XXXXXXXXX"),
+  childAge: yup.string().required("Required"),
+  parentName: yup.string().required("Parent's name is required"),
+  email: yup.string().email("Invalid email").required("Email is equired"),
+  comment: yup.string().required("Required"),
+  meetingTime: yup
+    .string()
+    .required("Please select a time")
+    .notOneOf(["Meeting time"], "Please select a time"),
 });
 
 const PopUp = ({ onClose, item }: ModalProps) => {
@@ -220,7 +220,7 @@ const PopUp = ({ onClose, item }: ModalProps) => {
               placeholder="Comment"
               className={css.textarea}
             ></textarea>
-            {errors.email && (
+            {errors.comment && (
               <span className={css.error}>{errors.comment.message}</span>
             )}
           </div>
