@@ -24,17 +24,6 @@
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
 }
 
-@media (max-width: 1024px) {
-  .container {
-    padding: 0 40px;
-  }
-}
-@media (max-width: 768px) {
-  .container {
-    /* padding: 0 20px; */
-  }
-}
-
 .logo {
   font-size: 24px;
   font-weight: 700;
@@ -43,14 +32,9 @@
   margin-right: 32px;
 }
 
-.nav {
-  display: flex;
-}
-
+.nav,
 .navDefault {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
 }
 
 .navigation {
@@ -59,21 +43,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-@media (max-width: 1024px) {
-  .navigation {
-    gap: 20px;
-  }
-}
-@media (max-width: 768px) {
-  .navDefault {
-    position: static;
-    transform: none;
-  }
-  .navigation {
-    gap: 15px;
-  }
 }
 
 .navigation a {
@@ -101,17 +70,10 @@
   gap: 92px;
 }
 
-@media (max-width: 1024px) {
-  .rightSide {
-    gap: 30px;
-  }
-}
-
 .userMenu {
   display: flex;
   align-items: center;
 }
-
 .userAvatar {
   width: 40px;
   height: 40px;
@@ -123,17 +85,10 @@
   color: var(--main);
   margin-right: 14px;
 }
-
 .userName {
   font-size: 18px;
   color: #fbfbfb;
   margin-right: 24px;
-}
-
-@media (max-width: 768px) {
-  .userName {
-    display: none;
-  }
 }
 
 .authButtons {
@@ -158,7 +113,6 @@
   background: transparent;
   color: white;
 }
-
 .loginBtn:hover,
 .logoutBtn:hover {
   background: #ffffff;
@@ -177,11 +131,87 @@
   border-color: #ffffff;
 }
 
+.burgerBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 101;
+}
+.menuWrapper {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 0 40px;
+  }
+  .userAvatar {
+    display: none;
+  }
+  .burgerBtn {
+    display: block;
+  }
+
+  .container .nav,
+  .container .navDefault,
+  .container .rightSide {
+    display: none !important;
+  }
+
+  .menuWrapper {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 88px;
+    left: 0;
+    width: 100%;
+    background: var(--main);
+    padding: 40px 20px;
+    gap: 30px;
+    z-index: 100;
+    align-items: center;
+  }
+
+  .menuWrapper.open {
+    display: flex !important;
+  }
+
+  .menuWrapper .navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .menuWrapper .authButtons,
+  .menuWrapper .userMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
 @media (max-width: 768px) {
+  .userName {
+    text-align: center;
+    margin-right: 0;
+  }
+  .userAvatar {
+    display: none;
+  }
   .loginBtn,
   .logoutBtn,
   .regBtn {
     padding: 8px 16px;
     font-size: 14px;
+  }
+  .navDefault {
+    position: static;
+    transform: none;
+  }
+  .navigation {
+    gap: 15px;
   }
 }

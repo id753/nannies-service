@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import css from "./Header.module.css";
 import Modal from "../Modal/Modal";
@@ -13,9 +13,17 @@ import { toast } from "sonner";
 const Header = () => {
   const { user, isLoggedIn } = useAuth();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   const [modalType, setModalType] = useState<"login" | "register" | null>(null);
 
   const pathname = usePathname() ?? "";
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   const isHome = pathname === "/";
   const isNannies = pathname.startsWith("/nannies");
@@ -44,7 +52,11 @@ const Header = () => {
       </li>
 
       <li>
-        <Link href="/nannies" className={isNannies ? css.active : ""}>
+        <Link
+          href="/nannies"
+          onClick={() => setIsMenuOpen(false)}
+          className={isNannies ? css.active : ""}
+        >
           Nannies
         </Link>
       </li>
@@ -83,12 +95,14 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className={css.container}>
-        {/* LOGO */}
         <Link href="/" className={css.logo}>
           Nanny.Services
         </Link>
 
-        {/* NAV */}
+        <button className={css.burgerBtn} onClick={toggleMenu}>
+          {isMenuOpen ? "✕" : "≡"}
+        </button>
+
         {isHome ? (
           <div className={css.rightSide}>
             <nav className={css.nav}>{Nav}</nav>
@@ -100,6 +114,11 @@ const Header = () => {
             <div className={css.rightSide}>{AuthBlock}</div>
           </>
         )}
+      </div>
+
+      <div className={`${css.menuWrapper} ${isMenuOpen ? css.open : ""}`}>
+        <nav className={css.navMobile}>{Nav}</nav>
+        <div className={css.rightSideMobile}>{AuthBlock}</div>
       </div>
 
       {modalType && (
