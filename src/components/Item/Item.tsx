@@ -71,7 +71,7 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
 
     setIsFavorite(newFavoriteStatus);
 
-    if (onFavoriteChange) {
+    if (onFavoriteChange && item.id) {
       onFavoriteChange(item.id, newFavoriteStatus);
     }
   };
