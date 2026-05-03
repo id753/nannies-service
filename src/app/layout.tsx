@@ -17,8 +17,38 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Nanny Services",
-  description: "Find Babysitters Online for All Occasions",
+  title: {
+    default: "Nanny.Services | Find Your Perfect Nanny",
+    template: "Nanny.Services",
+  },
+  description:
+    "Reliable babysitting services. Find and hire experienced nannies for your children with ease. Safety and trust first.",
+  keywords: [
+    "nanny",
+    "babysitter",
+    "hire nanny",
+    "child care",
+    "nanny services",
+  ],
+  openGraph: {
+    title: "Nanny.Services | Trusted Child Care",
+    description:
+      "Find qualified and verified babysitters online for all occasions.",
+    url: "https://nanny.services", // todo Указать потом домен
+    siteName: "Nanny.Services",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nanny.Services",
+    images: ["https://nanny.services/og-image.jpg"], // todo
+    description: "Find qualified and verified babysitters online.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
