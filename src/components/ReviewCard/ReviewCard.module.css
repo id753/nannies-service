@@ -22,7 +22,7 @@
   border-radius: 100px;
   width: 44px;
   height: 44px;
-  background: rgba(240, 63, 59, 0.2);
+  background: var(--second);
 }
 
 .avatarLetter {
@@ -30,7 +30,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-  color: #f03f3b;
+  color: var(--main);
 }
 
 .DescripContainer {
@@ -43,7 +43,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 125%;
-  color: #11101c;
+  color: var(--text-main);
 }
 
 .rating {
@@ -51,7 +51,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 129%;
-  color: #11101c;
+  color: var(--text-main);
   display: flex;
   gap: 8px;
 }

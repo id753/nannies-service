@@ -77,7 +77,7 @@
 .userAvatar {
   width: 40px;
   height: 40px;
-  background-color: #fbfbfb;
+  background-color: var(--bg-second);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -87,7 +87,7 @@
 }
 .userName {
   font-size: 18px;
-  color: #fbfbfb;
+  color: var(--bg-second);
   margin-right: 24px;
 }
 

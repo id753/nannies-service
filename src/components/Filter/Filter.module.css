@@ -18,8 +18,8 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 111%;
-  color: #fbfbfb;
-  background: #f03f3b;
+  color: var(--bg-second);
+  background: var(--main);
   position: relative;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .dropdown li:hover {
-  color: #11101c;
+  color: var(--text-main);
 }
 
 .dropdown li:last-child {

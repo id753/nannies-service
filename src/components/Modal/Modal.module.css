@@ -16,14 +16,14 @@
 }
 
 .modal {
-  background: #fbfbfb;
+  background: var(--bg-second);
   border-radius: 30px;
   padding: 64px;
   width: 100%;
   max-width: 620px;
   position: relative;
   box-sizing: border-box;
-  border: 1px solid #11101c;
+  border: 1px solid var(--text-main);
 
   margin-top: auto;
   margin-bottom: auto;
@@ -45,7 +45,7 @@
   font-size: 40px;
   line-height: 120%;
   letter-spacing: -0.02em;
-  color: #11101c;
+  color: var(--text-main);
   margin-bottom: 20px;
 }
 
@@ -74,7 +74,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 125%;
-  color: #11101c;
+  color: var(--text-main);
 }
 
 .input::placeholder {
@@ -82,7 +82,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 125%;
-  color: #11101c;
+  color: var(--text-main);
   font-family: inherit;
 }
 .input:focus {
