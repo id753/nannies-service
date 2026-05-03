@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.container h1 {
+  font-size: 120px;
+  margin: 0;
+  color: var(--main);
+}
+
+.container h2 {
+  margin-bottom: 20px;
+}
+
+.link {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: var(--main);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.link:not(:disabled):hover {
+  background-color: var(--white);
+  color: var(--main);
+  border: 1px solid var(--main);
+}
