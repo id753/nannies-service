@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Nanny.Services | Trusted Child Care",
     description:
       "Find qualified and verified babysitters online for all occasions.",
-    url: "https://nanny.services", // todo Указать потом домен
+    url: "https://nannies-service.netlify.app/",
     siteName: "Nanny.Services",
     locale: "en_US",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nanny.Services",
-    images: ["https://nanny.services/og-image.jpg"], // todo
+    images: ["https://nannies-service.netlify.app/og-image.jpg"],
     description: "Find qualified and verified babysitters online.",
   },
   robots: {
