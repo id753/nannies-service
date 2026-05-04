@@ -5,7 +5,7 @@
 
 
 <p align="center">
-   <img src="https://github.com/user-attachments/assets/21ab1c57-15b9-4eba-a1d6-ff7979f33ca6" alt="Nanny.Services App Screenshot"  />
+   <img src="https://github.com/user-attachments/assets/21ab1c57-15b9-4eba-a1d6-ff7979f33ca6" width="450"  alt="Nanny.Services App Screenshot"  />
   <br>
   <sub>Nanny.Services App Screenshot</sub>
 </p>
