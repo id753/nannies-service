@@ -1,7 +1,8 @@
 # Nanny.Services 
 ## A modern web application designed to connect parents with professional and verified babysitters. 
 
-## The platform allows users to browse a detailed catalog of caregivers, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting through an integrated appointment system.
+## The platform allows users to browse a detailed catalog of caregivers, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting through an integrated appointment system. 
+Additionally, the application includes a secure authentication system, allowing users to register and manage their accounts, as well as save preferred nannies to a personal 'Favorites' list for quick access.
 
 
 <p align="center">
