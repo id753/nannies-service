@@ -1,5 +1,7 @@
-# 📚Nanny.Services 
-## A modern web application designed to connect parents with professional and verified babysitters. The platform allows users to browse a detailed catalog of caregivers, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting through an integrated appointment system.
+# Nanny.Services 
+## A modern web application designed to connect parents with professional and verified babysitters. 
+
+## The platform allows users to browse a detailed catalog of caregivers, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting through an integrated appointment system.
 
 
 <p align="center">
@@ -8,8 +10,10 @@
   <sub>Nanny.Services App Screenshot</sub>
 </p>
 
-
-## [Live Project](https://09-auth-eosin-iota.vercel.app/) 
+# Quick Links
+## [Live Project](https://nannies-service.netlify.app/) 
+## [Technical Requirements](https://docs.google.com/document/d/1NF8-qXrI-G4wSKDRQ99Akfg_BlOpz1x_vX92TbKBJ44/edit?usp=sharing) 
+## [Project Layout](https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=5qXICKgmNjipRLld-0) 
 
 ## Tech Stack
 **Core Technologies**
@@ -23,7 +27,7 @@
 **Development & Deployment**
 - **Version Control:** Git & GitHub.
 - **Deployment:** Netlify (automated CI/CD).
-- SEO & Performance: Implementation of dynamic meta-tags for each vehicle to enhance search engine visibility and social sharing.
+- SEO & Performance:** Implementation of dynamic meta-tags for each nanny to enhance search engine visibility and social sharing.
 - **Design Philosophy:** Semantic HTML5, fluid layout using CSS Grid/Flexbox, CSS Modules (Modular and scoped styling).
   
 ## Features
@@ -33,12 +37,13 @@
 - ✅ **Advanced Filtering & Sorting**: Real-time sorting by name (A-Z, Z-A), price categories (less than/greater than $10/hour), and popularity (rating).
 - ✅ **Favorites System**: Authenticated users can save their preferred nannies to a personal "Favorites" list, with state persistence across page refreshes.
 - ✅ **Booking System**: A fully validated appointment form (using react-hook-form and yup) for users to request a meeting.
-- ✅ **Responsive UI**: A fully adaptive and semantic design that ensures a seamless experience across all device types (from mobile to desktop).
+- ✅ **Responsive UI**: A fully adaptive design ensuring a seamless experience across mobile, tablet, and desktop devices.
+- ✅ **Theming & Customization:** Utilized CSS variables (root styles) for the design system. 
 
 ## 🔢 Getting Started (Frontend)
 Clone the repository
       
-    git clone git@github.com:id753/note_hub_app.git
+    git clone git@github.com:id753/nannies-service.git
 Install dependencies
 
      npm install
