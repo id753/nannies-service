@@ -1,8 +1,7 @@
 # Nanny.Services 
 ## A modern web application designed to connect parents with professional and verified babysitters. 
 
-## The platform allows users to browse a detailed catalog of caregivers, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting through an integrated appointment system. 
-Additionally, the application includes a secure authentication system, allowing users to register and manage their accounts, as well as save preferred nannies to a personal 'Favorites' list for quick access.
+## The platform allows users to browse a detailed catalog of caregivers, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting through an integrated appointment system. </br> Additionally, the application includes a secure authentication system, allowing users to register and manage their accounts, as well as save preferred nannies to a personal 'Favorites' list for quick access.
 
 
 <p align="center">
@@ -19,17 +18,17 @@ Additionally, the application includes a secure authentication system, allowing 
 ## Tech Stack
 **Core Technologies**
 - **Frontend:** Next.js (App Router), React, CSS Modules.
-- **Backend & Database:** Firebase Realtime Database, Firebase Authentication.
+- **Backend & Database:** [Firebase Realtime Database](https://firebase.google.com/docs/database?hl=ru),  [Firebase Authentication](https://firebase.google.com/docs/auth?hl=ru).
 - **Language:** TypeScript (Type-safe codebase).
 **State & Form Management**
 - **State Handling:** React Hooks (`useState`, `useEffect`, `useMemo`).
-- **Form Management:** `react-hook-form` with `yup` for schema validation.
-- **Notifications:** `sonner` for rich-color feedback messages.
+- **Form Management:** [`react-hook-form`](https://react-hook-form.com/docs) with `yup` for schema validation.
+- **Notifications:** [`sonner`](https://sonner.emilkowal.ski/) for rich-color feedback messages.
 **Development & Deployment**
 - **Version Control:** Git & GitHub.
-- **Deployment:** Netlify (automated CI/CD).
+- **Deployment:** [Netlify](https://www.netlify.com/) (automated CI/CD).
 - SEO & Performance:** Implementation of dynamic meta-tags for each nanny to enhance search engine visibility and social sharing.
-- **Design Philosophy:** Semantic HTML5, fluid layout using CSS Grid/Flexbox, CSS Modules (Modular and scoped styling).
+- **Design Philosophy:** Semantic HTML5, fluid layout using CSS Grid/Flexbox, CSS Modules (Modular and scoped styling), root styles.
   
 ## Features
 ### Frontend Experience
@@ -39,8 +38,8 @@ Additionally, the application includes a secure authentication system, allowing 
 - ✅ **Favorites System**: Authenticated users can save their preferred nannies to a personal "Favorites" list, with state persistence across page refreshes.
 - ✅ **Booking System**: A fully validated appointment form (using react-hook-form and yup) for users to request a meeting.
 - ✅ **Responsive UI**: A fully adaptive design ensuring a seamless experience across mobile, tablet, and desktop devices.
-- ✅ **Theming & Customization:** Utilized CSS variables (root styles) for the design system. 
-
+- ✅ **Theming & Customization:** Utilized CSS variables (root styles) for the design system. This architecture allows for global updates to the color palette, typography, and spacing, enabling rapid branding changes or the implementation of Dark/Light modes with minimal effort.
+- 
 ## 🔢 Getting Started (Frontend)
 Clone the repository
       
