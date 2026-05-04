@@ -16,18 +16,18 @@
 ## [Project Layout](https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=5qXICKgmNjipRLld-0) 
 
 ## Tech Stack
-**Core Technologies**
+- ⚙️ **Core Technologies**
 - **Frontend:** Next.js (App Router), React, CSS Modules.
 - **Backend & Database:** [Firebase Realtime Database](https://firebase.google.com/docs/database?hl=ru),  [Firebase Authentication](https://firebase.google.com/docs/auth?hl=ru).
 - **Language:** TypeScript (Type-safe codebase).
-**State & Form Management**
+- ⚙️ **State & Form Management**
 - **State Handling:** React Hooks (`useState`, `useEffect`, `useMemo`).
 - **Form Management:** [`react-hook-form`](https://react-hook-form.com/docs) with `yup` for schema validation.
 - **Notifications:** [`sonner`](https://sonner.emilkowal.ski/) for rich-color feedback messages.
-**Development & Deployment**
+- ⚙️ **Development & Deployment**
 - **Version Control:** Git & GitHub.
 - **Deployment:** [Netlify](https://www.netlify.com/) (automated CI/CD).
-- SEO & Performance:** Implementation of dynamic meta-tags for each nanny to enhance search engine visibility and social sharing.
+- **SEO & Performance:** Implemented a robust global SEO foundation using static metadata, semantic HTML5 structure, and clean heading hierarchy. This ensures high search engine indexation and accessibility across all application pages.
 - **Design Philosophy:** Semantic HTML5, fluid layout using CSS Grid/Flexbox, CSS Modules (Modular and scoped styling), root styles.
   
 ## Features
