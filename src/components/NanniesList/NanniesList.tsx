@@ -33,9 +33,10 @@ const NanniesList = ({
   if (isLoading) return <Loader />;
 
   return (
-    <div className={css.section}>
-      <Filter onChange={onFilterChange} className={css.filter} />
+    <section className={css.section}>
       <div className={css.container}>
+        <Filter onChange={onFilterChange} className={css.filter} />
+
         {nannies.length > 0 ? (
           <ul className={css.list}>
             {nannies.map((item) => (
@@ -56,7 +57,7 @@ const NanniesList = ({
           </Button>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

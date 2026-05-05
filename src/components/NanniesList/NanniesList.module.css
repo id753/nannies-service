@@ -1,14 +1,18 @@
 .section {
   background: var(--bg-main);
   padding-top: 88px;
+  padding-bottom: 100px;
 }
 
 .container {
   background: var(--bg-main);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding-bottom: 100px;
+
+  max-width: 1440px;
+  margin: 0 auto;
 }
 .list {
   list-style: "none";
@@ -28,7 +32,6 @@
   color: var(--main);
 }
 .btn:disabled {
-  /* pointer-events: none; */
   opacity: 0.8;
   cursor: not-allowed;
 }
@@ -51,4 +54,26 @@
   100% {
     transform: rotate(360deg);
   }
+}
+@media (max-width: 900px) {
+  .container {
+    /* padding: 0 20px; */
+  }
+}
+
+.filter {
+  margin-bottom: 32px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 64px;
+  width: 100%;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  min-width: 150px;
 }
