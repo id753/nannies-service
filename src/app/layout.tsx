@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nanny.Services",
-    images: ["https://nannies-service.netlify.app/og-image.jpg"],
+    images: ["https://nannies-service.netlify.app/og-image.png"],
     description: "Find qualified and verified babysitters online.",
   },
   robots: {

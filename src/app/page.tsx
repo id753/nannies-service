@@ -2,6 +2,7 @@ import css from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowIcon, CheckIcon } from "@/src/components/Icons/Icons";
+import HeroSection from "../components/HeroSection/HeroSection";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={css.rightSide}>
+      <HeroSection className={css.rightSide}>
         <div className={css.statsBadge}>
           <div className={css.checkIcon}>
             <CheckIcon />
@@ -34,7 +35,7 @@ export default function Home() {
             <p className={css.statsCount}>15,000</p>
           </div>
         </div>
-      </div>
+      </HeroSection>
     </section>
   );
 }

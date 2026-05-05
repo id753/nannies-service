@@ -32,28 +32,9 @@
   justify-content: center;
 }
 
-.rightSide {
-  position: relative;
-  background-image: linear-gradient(rgba(18, 20, 23, 0.6)), url("/homeBg.jpg");
-  background-size: cover;
-  background-position: center;
-  min-height: 400px;
-}
-
 .content {
   max-width: 517px;
   margin: 163px 64px 96px 96px;
-}
-
-@media (max-width: 1024px) {
-  .content {
-    /* margin: 80px 40px; */
-  }
-}
-@media (max-width: 600px) {
-  .content {
-    /* margin: 40px 20px; */
-  }
 }
 
 .title {
@@ -134,6 +115,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  z-index: 1000;
 }
 
 @media (max-width: 1024px) {
