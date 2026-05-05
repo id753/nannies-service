@@ -7,16 +7,20 @@ export default function Home() {
   return (
     <section className={css.hero}>
       <div className={css.leftSide}>
-        <div className={css.content}>
-          <h1 className={css.title}>Make Life Easier for the Family:</h1>
-          <p className={css.text}>Find Babysitters Online for All Occasions</p>
+        <div className={css.container}>
+          <div className={css.content}>
+            <h1 className={css.title}>Make Life Easier for the Family:</h1>
+            <p className={css.text}>
+              Find Babysitters Online for All Occasions
+            </p>
 
-          <Link href="/nannies" className={css.button}>
-            Get started
-            <span className={css.arrow}>
-              <ArrowIcon />
-            </span>
-          </Link>
+            <Link href="/nannies" className={css.button}>
+              Get started
+              <span className={css.arrow}>
+                <ArrowIcon />
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
 

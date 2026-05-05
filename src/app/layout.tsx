@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import css from "./layout.module.css";
 import PageLayoutHandler from "./../components/PageLayoutHandler/PageLayoutHandler";
 import { AuthProvider } from "../context/AuthContext";
 import ToasterProvider from "../providers/ToasterProvider";
@@ -60,7 +61,9 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
         <AuthProvider>
-          <PageLayoutHandler>{children}</PageLayoutHandler>
+          <PageLayoutHandler>
+            <main>{children}</main>
+          </PageLayoutHandler>
         </AuthProvider>
         <ToasterProvider />
       </body>
