@@ -107,7 +107,7 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
       <div className={css.rightBlock}>
         <div className={css.headerRow}>
           <div className={css.infoSummary}>
-            <span className={css.tag}>Nanny</span>
+            <span className={css.tag}>Manny</span>
             <div className={css.stats}>
               <p className={css.statItem}>
                 <LocationIcon /> {item.location}
