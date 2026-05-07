@@ -19,28 +19,25 @@ interface ModalProps {
 }
 
 interface FormData {
-  address?: string;
+  address: string;
   tel: string;
   childAge: string;
   parentName: string;
-  email?: string;
-  comment?: string;
+  email: string;
+  comment: string;
   meetingTime: string;
 }
 
 const validationSchema = yup.object().shape({
-  address: yup.string(),
-  // .required("Address is required")
+  address: yup.string().required("Address is required"),
   tel: yup
     .string()
     .required("Telephone is required")
     .matches(/^\+380\d{9}$/, "Format: +380XXXXXXXXX"),
   childAge: yup.string().required("Required"),
   parentName: yup.string().required("Parent's name is required"),
-  email: yup.string().email("Invalid email"),
-  // .required("Email is equired")
-  comment: yup.string(),
-  // .required("Required")
+  email: yup.string().email("Invalid email").required("Email is equired"),
+  comment: yup.string().required("Required"),
   meetingTime: yup
     .string()
     .required("Please select a time")
