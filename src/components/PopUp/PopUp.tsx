@@ -60,9 +60,9 @@ const PopUp = ({ onClose, item }: ModalProps) => {
     defaultValues: {
       tel: "+380",
       meetingTime: "Meeting time",
-      email: "",
-      comment: "",
-      address: "",
+      // email: "",
+      // comment: "",
+      // address: "",
       parentName: "",
       childAge: "",
     },
