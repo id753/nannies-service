@@ -13,13 +13,19 @@ export default function Home() {
       <div className={css.leftSide}>
         <div className={css.container}>
           <div className={css.content}>
-            <h1 className={css.title}>Make Life Easier for the Family:</h1>
+            <h1 className={css.title}>Trusted Care. Happy Kids.</h1>
+            <h2 className={css.subTitle}>
+              <strong>Manny</strong> — a fusion of “male” and “nanny” —
+              introduces a fresh standard of dependable childcare and active
+              mentorship.
+            </h2>
             <p className={css.text}>
-              Find Babysitters Online for All Occasions
+              More than just a sitter. Find a Manny who can turn an ordinary
+              evening into an exciting adventure for your child.
             </p>
 
             <Link href="/mannies" className={css.button}>
-              Get started
+              Explore Our Team
               <span className={css.arrow}>
                 <ArrowIcon />
               </span>

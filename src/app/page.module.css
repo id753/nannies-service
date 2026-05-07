@@ -33,23 +33,47 @@
 }
 
 .content {
-  max-width: 517px;
-  margin: 163px 64px 96px 96px;
+  max-width: 600px;
+  margin: 163px auto 96px auto;
 }
 
 .title {
   font-family: var(--font-family);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 70px;
   line-height: 100%;
   letter-spacing: -0.03em;
-  color: var(--bg-second);
-  margin-bottom: 28px;
+  color: var(--bg-main);
+  margin-bottom: 50px;
+  max-width: 500px;
 }
-
 @media (max-width: 900px) {
   .title {
     font-size: 48px;
+    margin-bottom: 22px;
+  }
+}
+.subTitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  color: var(--bg-main);
+  margin-bottom: 50px;
+  max-width: 600px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: justify;
+  /* opacity: 0.8; */
+}
+@media (max-width: 900px) {
+  .subTitle {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+  .content {
+    margin: 150px auto 50px;
   }
 }
 
@@ -57,15 +81,17 @@
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 28px;
-  line-height: 107%;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--bg-second);
-  margin-bottom: 64px;
+  margin-bottom: 34px;
+  color: rgba(255, 255, 255, 0.736);
+  text-align: justify;
 }
 
 @media (max-width: 900px) {
   .text {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 32px;
   }
 }
@@ -92,6 +118,11 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+@media (max-width: 900px) {
+  .button {
+    font-size: 18px;
+  }
+}
 .arrow {
   display: flex;
   align-items: center;
@@ -126,14 +157,6 @@
     padding: 20px;
   }
 }
-@media (max-width: 600px) {
-  .statsBadge {
-    position: static;
-    /* width: 100%; */
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-}
 
 .checkIcon {
   background: var(--main);
@@ -155,4 +178,18 @@
   font-weight: 700;
   font-size: 24px;
   color: var(--text-main);
+}
+@media (max-width: 600px) {
+  .statsBadge {
+    padding: 10px;
+    width: 190px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .checkIcon {
+    padding: 10px;
+    width: 34px;
+    height: 34px;
+  }
 }
