@@ -1,12 +1,14 @@
 :root {
-  --main: #f03f3b;
-  --second: #f1cecd;
-  --bg-main: #f3f3f3;
-  --bg-second: #fbfbfb;
-  --hover: rgba(240, 63, 59, 0.2);
+  --main: #ef4444;
+  --second: #ffe4e6;
 
-  --text-main: #11101c;
-  --text-second: #8a8a89;
+  --bg-main: #f8fafc;
+  --bg-second: #ffffff;
+
+  --hover: rgba(239, 68, 68, 0.12);
+
+  --text-main: #0f172a;
+  --text-second: #64748b;
 
   --font-family: var(--font-inter), sans-serif;
 }
