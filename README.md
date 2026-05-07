@@ -51,7 +51,7 @@
 
 Clone the repository
 
-    git clone git@github.com:id753/nannies-service.git
+    git clone git@github.com:id753/manny-service.git
 
 Install dependencies
 
