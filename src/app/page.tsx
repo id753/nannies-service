@@ -18,7 +18,7 @@ export default function Home() {
               Find Babysitters Online for All Occasions
             </p>
 
-            <Link href="/nannies" className={css.button}>
+            <Link href="/mannies" className={css.button}>
               Get started
               <span className={css.arrow}>
                 <ArrowIcon />

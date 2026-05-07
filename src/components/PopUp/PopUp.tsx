@@ -107,15 +107,15 @@ const PopUp = ({ onClose, item }: ModalProps) => {
           <CloseIcon />
         </button>
 
-        <h3 className={css.title}>Make an appointment with a babysitter</h3>
+        <h3 className={css.title}>Book a meeting with a Manny</h3>
         <p className={css.text}>
-          Arranging a meeting with a caregiver for your child is the first step
-          to creating a safe and comfortable environment.
+          Connecting with a professional male educator is the first step to
+          ensuring a secure and engaging environment for your child.
         </p>
 
         <div className={css.avatarWrapper}>
           <Image
-            src={item.avatar_url || "/default-avatar.png"}
+            src={item.avatar_url || "/default-avatar.jpg"}
             alt={item.name}
             width={44}
             height={44}

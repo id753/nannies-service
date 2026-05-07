@@ -58,6 +58,7 @@
 .text {
   color: var(--text-second);
   background: var(--bg-second);
+  padding: 1px;
   border-radius: 24px;
   max-width: 300px;
   line-height: 150%;

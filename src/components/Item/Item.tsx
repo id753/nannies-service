@@ -93,7 +93,7 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
       <div className={css.avatarWrapper}>
         <div className={css.avatar}>
           <Image
-            src={item.avatar_url || "/default-avatar.png"}
+            src={item.avatar_url || "/default-avatar.jpg"}
             alt={item.name}
             width={96}
             height={96}
