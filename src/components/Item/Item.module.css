@@ -46,9 +46,17 @@
   right: 14px;
   width: 14px;
   height: 14px;
-  background-color: #38cd3e;
   border: 2px solid var(--bg-second);
   border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.online {
+  background-color: #38ef7d;
+}
+
+.offline {
+  background-color: var(--text-second);
 }
 
 .rightBlock {

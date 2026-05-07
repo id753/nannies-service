@@ -16,4 +16,5 @@ export interface Babysitter {
   about: string;
   characters: string[];
   rating: number;
+  status?: "online" | "offline";
 }

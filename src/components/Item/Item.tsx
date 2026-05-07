@@ -100,7 +100,9 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
             className={css.image}
             unoptimized
           />
-          <span className={css.onlineBadge}></span>
+          <span
+            className={`${css.onlineBadge} ${item.status === "online" ? css.online : css.offline}`}
+          ></span>
         </div>
       </div>
 

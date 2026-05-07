@@ -8,6 +8,7 @@ import Button from "../UI/Button/Button";
 import Loader from "../UI/Loader/Loader";
 import { HeartBrokenIcon } from "../Icons/Icons";
 import { EmptyState } from "../EmptyState/EmptyState";
+import { useMemo } from "react";
 
 interface NanniesListProps {
   nannies: Babysitter[];
@@ -34,6 +35,20 @@ const NanniesList = ({
   emptyMessage = "No mannies found.",
   description = "We couldn't find any mannies for your current search criteria.",
 }: NanniesListProps) => {
+  const nanniesWithStatus = useMemo(() => {
+    return nannies.map((item): Babysitter => {
+      const idCode = item.id ? item.id.charCodeAt(item.id.length - 1) : 0;
+
+      const status: "online" | "offline" =
+        idCode % 2 === 0 ? "online" : "offline";
+
+      return {
+        ...item,
+        status,
+      };
+    });
+  }, [nannies]);
+
   if (isLoading) return <Loader />;
 
   return (
@@ -43,7 +58,7 @@ const NanniesList = ({
 
         {nannies.length > 0 ? (
           <ul className={css.list}>
-            {nannies.map((item) => (
+            {nanniesWithStatus.map((item) => (
               <Item key={item.id} item={item} onFavoriteChange={onItemChange} />
             ))}
           </ul>
