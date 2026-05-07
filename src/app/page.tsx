@@ -34,7 +34,7 @@ export default function Home() {
             <CheckIcon />
           </div>
           <div>
-            <p className={css.statsLabel}>Experienced nannies</p>
+            <p className={css.statsLabel}>Experienced mannies</p>
             <p className={css.statsCount}>
               <NannyCounter start={14621} to={15000} />+
             </p>

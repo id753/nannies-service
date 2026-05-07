@@ -19,30 +19,31 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Nanny.Services | Find Your Perfect Nanny",
-    template: "Nanny.Services",
+    default: "Manny.Services | Find Your Perfect Manny",
+    template: "Manny.Services",
   },
   description:
-    "Reliable babysitting services. Find and hire experienced nannies for your children with ease. Safety and trust first.",
+    "Reliable babysitting services. Find and hire experienced mannies for your children with ease. Safety and trust first.",
   keywords: [
     "nanny",
+    "manny",
     "babysitter",
-    "hire nanny",
+    "hire manny",
     "child care",
-    "nanny services",
+    "manny services",
   ],
   openGraph: {
-    title: "Nanny.Services | Trusted Child Care",
+    title: "Manny.Services | Trusted Child Care",
     description:
       "Find qualified and verified babysitters online for all occasions.",
     url: "https://nannies-service.netlify.app/",
-    siteName: "Nanny.Services",
+    siteName: "Manny.Services",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nanny.Services",
+    title: "Manny.Services",
     images: ["https://nannies-service.netlify.app/og-image.png"],
     description: "Find qualified and verified babysitters online.",
   },

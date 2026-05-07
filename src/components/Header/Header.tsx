@@ -26,7 +26,7 @@ const Header = () => {
   }, [pathname]);
 
   const isHome = pathname === "/";
-  const isNannies = pathname.startsWith("/nannies");
+  const isNannies = pathname.startsWith("/mannies");
   const isFavorites = pathname.startsWith("/favorites");
 
   const router = useRouter();
@@ -53,11 +53,11 @@ const Header = () => {
 
       <li>
         <Link
-          href="/nannies"
+          href="/mannies"
           onClick={() => setIsMenuOpen(false)}
           className={isNannies ? css.active : ""}
         >
-          Nannies
+          Mannies
         </Link>
       </li>
 
@@ -96,7 +96,7 @@ const Header = () => {
     <header className={headerClasses}>
       <div className={css.container}>
         <Link href="/" className={css.logo}>
-          Nanny.Services
+          Manny.Services
         </Link>
 
         <button className={css.burgerBtn} onClick={toggleMenu}>

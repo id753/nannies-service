@@ -92,7 +92,7 @@ const PopUp = ({ onClose, item }: ModalProps) => {
     setTimeout(() => {
       console.log("Form Data:", fullData);
       setIsMoreLoading(false);
-      toast.success("Great! The nanny will contact you soon.");
+      toast.success("Great! The manny will contact you soon.");
       onClose();
     }, 1500);
   };
@@ -122,7 +122,7 @@ const PopUp = ({ onClose, item }: ModalProps) => {
             className={css.avatar}
           />
           <div className={css.nannyInfo}>
-            <span className={css.tag}>Your nanny</span>
+            <span className={css.tag}>Your manny</span>
             <h4 className={css.nannyName}>{item.name}</h4>
           </div>
         </div>

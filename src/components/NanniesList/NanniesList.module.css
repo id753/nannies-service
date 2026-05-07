@@ -47,17 +47,21 @@
   animation: rotation 1s linear infinite;
 }
 
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  gap: 5px;
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-@media (max-width: 900px) {
-  .container {
-    /* padding: 0 20px; */
   }
 }
 

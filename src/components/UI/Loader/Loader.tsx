@@ -4,7 +4,7 @@ const Loader = () => {
   return (
     <div className={css.wrapper}>
       <span className={css.loader}></span>
-      <p className={css.loaderText}>The list of nannies is loading</p>
+      <p className={css.loaderText}>The list of mannies is loading</p>
     </div>
   );
 };

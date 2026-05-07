@@ -79,7 +79,8 @@ export const FavoritesList = () => {
       onLoadMore={() => setLimit((prev) => prev + 3)}
       onItemChange={handleRemove}
       isMoreLoading={false}
-      emptyMessage="You haven't added any favorites yet."
+      emptyMessage="Your favorites list is empty."
+      description="Explore our mannies and click the heart icon to save them here."
     />
   );
 };

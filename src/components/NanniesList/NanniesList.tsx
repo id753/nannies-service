@@ -6,6 +6,8 @@ import { Babysitter } from "@/src/types";
 import Filter from "../Filter/Filter";
 import Button from "../UI/Button/Button";
 import Loader from "../UI/Loader/Loader";
+import { HeartBrokenIcon } from "../Icons/Icons";
+import { EmptyState } from "../EmptyState/EmptyState";
 
 interface NanniesListProps {
   nannies: Babysitter[];
@@ -17,6 +19,7 @@ interface NanniesListProps {
   isMoreLoading: boolean;
   isLoading: boolean;
   emptyMessage?: string;
+  description?: string;
 }
 
 const NanniesList = ({
@@ -28,7 +31,8 @@ const NanniesList = ({
   totalLength,
   isMoreLoading,
   isLoading,
-  emptyMessage,
+  emptyMessage = "No mannies found.",
+  description = "We couldn't find any mannies for your current search criteria.",
 }: NanniesListProps) => {
   if (isLoading) return <Loader />;
 
@@ -44,7 +48,9 @@ const NanniesList = ({
             ))}
           </ul>
         ) : (
-          <p className={css.empty}>{emptyMessage || "No nannies found."}</p>
+          <div className={css.empty}>
+            <EmptyState message={emptyMessage} description={description} />
+          </div>
         )}
 
         {totalLength > limit && (

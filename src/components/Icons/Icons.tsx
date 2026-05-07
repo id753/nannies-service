@@ -105,6 +105,44 @@ export const HeartIcon = ({ isFavorite, className }: IconProps) => {
   );
 };
 
+export const HeartBrokenIcon = ({ isFavorite, className }: IconProps) => {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 26 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M11.5 22L4.5 15C2.5 13 2 10 3.2 7.8C4.3 5.7 6.2 4.5 8.5 4.5C10.1 4.5 11.5 5.2 12.5 6.4L14 8"
+        fill={isFavorite ? "#F03F3B" : "#F03F3B"}
+        stroke={isFavorite ? "#F03F3B" : "#F03F3B"}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M14.5 22L21.5 15C23.5 13 24 10 22.8 7.8C21.7 5.7 19.8 4.5 17.5 4.5C15.9 4.5 14.5 5.2 13.5 6.4L12 8"
+        fill={isFavorite ? "#F03F3B" : "#F03F3B"}
+        stroke={isFavorite ? "#F03F3B" : "#F03F3B"}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M13 7L11 11L13.5 13L11.5 16L13 20"
+        stroke={isFavorite ? "#fff" : "#fff"}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 export const EyeOpenIcon = ({ className }: IconProps) => {
   return (
     <svg
