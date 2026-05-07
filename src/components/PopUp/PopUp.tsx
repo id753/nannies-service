@@ -19,12 +19,12 @@ interface ModalProps {
 }
 
 interface FormData {
-  address: string;
+  address?: string;
   tel: string;
   childAge: string;
   parentName: string;
-  email: string;
-  comment: string;
+  email?: string;
+  comment?: string;
   meetingTime: string;
 }
 
