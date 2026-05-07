@@ -19,33 +19,42 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Manny.Services | Find Your Perfect Manny",
-    template: "Manny.Services",
+    default: "Manny.Services | Professional Male Nannies & Childcare",
+    template: "%s | Manny.Services",
   },
   description:
-    "Reliable babysitting services. Find and hire experienced mannies for your children with ease. Safety and trust first.",
+    "Find and hire verified male nannies (mannies). Professional, active, and reliable childcare services tailored for your family. Book your perfect match today!",
   keywords: [
-    "nanny",
+    "male nanny",
     "manny",
     "babysitter",
-    "hire manny",
-    "child care",
-    "manny services",
+    "hire a manny",
+    "professional childcare",
+    "manny services online",
   ],
   openGraph: {
-    title: "Manny.Services | Trusted Child Care",
+    title: "Manny.Services | Reliable Care for Your Kids",
     description:
-      "Find qualified and verified babysitters online for all occasions.",
+      "Discover verified mannies who provide active mentorship and professional care. Safety and trust first.",
     url: "https://nannies-service.netlify.app/",
     siteName: "Manny.Services",
+    images: [
+      {
+        url: "https://nannies-service.netlify.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Manny.Services - Professional Male Nannies",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manny.Services",
+    title: "Manny.Services | Hire a Professional Manny",
+    description:
+      "Find qualified and verified babysitters online. Active care and mentorship for your children.",
     images: ["https://nannies-service.netlify.app/og-image.png"],
-    description: "Find qualified and verified babysitters online.",
   },
   robots: {
     index: true,
