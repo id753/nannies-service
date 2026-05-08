@@ -11,6 +11,7 @@ const Catalog = () => {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [limit, setLimit] = useState(3);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const unsubscribe = onValue(ref(db), (snap) => {
@@ -25,7 +26,24 @@ const Catalog = () => {
   }, []);
 
   const sorted = useMemo(() => {
-    let result = [...nannies];
+    const searchWords = searchTerm
+      .toLowerCase()
+      .split(" ")
+      .filter((word) => word.length > 0);
+
+    let result = nannies.filter((n) => {
+      if (searchWords.length === 0) return true;
+
+      return searchWords.every((word) => {
+        const matchesName = n.name?.toLowerCase().includes(word);
+        const matchesCity = n.location?.toLowerCase().includes(word);
+        const matchesCharacters = n.characters?.some((char) =>
+          char.toLowerCase().includes(word)
+        );
+
+        return matchesName || matchesCity || matchesCharacters;
+      });
+    });
 
     switch (filter) {
       case "A-Z":
@@ -51,7 +69,7 @@ const Catalog = () => {
     }
 
     return result;
-  }, [nannies, filter]);
+  }, [nannies, filter, searchTerm]);
 
   const visible = sorted.slice(0, limit);
 
@@ -61,8 +79,13 @@ const Catalog = () => {
       limit={limit}
       totalLength={sorted.length}
       isLoading={loading}
-      onFilterChange={(val) => {
-        setFilter(val);
+      searchValue={searchTerm}
+      onFilterChange={(value) => {
+        setFilter(value);
+        setLimit(3);
+      }}
+      onSearchChange={(value) => {
+        setSearchTerm(value);
         setLimit(3);
       }}
       onLoadMore={() => setLimit((prev) => prev + 3)}

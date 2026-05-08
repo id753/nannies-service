@@ -1,7 +1,8 @@
 .filterContainer {
   margin-bottom: 32px;
   position: relative;
-  width: 226px;
+  width: 350px;
+  min-width: 200px;
 }
 
 .select {
@@ -61,4 +62,12 @@
 
 .dropdown li:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .filterContainer {
+    max-width: 95%;
+    width: 250px;
+    margin-bottom: 10px;
+  }
 }

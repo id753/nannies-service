@@ -10,6 +10,7 @@ export const FavoritesList = () => {
   const [filter, setFilter] = useState("all");
   const [limit, setLimit] = useState(3);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -17,7 +18,12 @@ export const FavoritesList = () => {
         const storageKey = `favorites_${user.uid}`;
         const saved = localStorage.getItem(storageKey);
         if (saved) {
-          setFavorites(JSON.parse(saved));
+          try {
+            setFavorites(JSON.parse(saved));
+          } catch (e) {
+            console.error("Error parsing favorites", e);
+            setFavorites([]);
+          }
         }
       } else {
         setFavorites([]);
@@ -27,8 +33,23 @@ export const FavoritesList = () => {
     return () => unsubscribe();
   }, []);
 
-  const sorted = useMemo(() => {
-    let result = [...favorites];
+  const filteredFavorites = useMemo(() => {
+    const searchWords = searchTerm
+      .toLowerCase()
+      .split(" ")
+      .filter((word) => word.length > 0);
+
+    let result = favorites.filter((n) => {
+      if (searchWords.length === 0) return true;
+
+      return searchWords.every((word) => {
+        return (
+          n.name?.toLowerCase().includes(word) ||
+          n.location?.toLowerCase().includes(word) ||
+          n.characters?.some((char) => char.toLowerCase().includes(word))
+        );
+      });
+    });
 
     switch (filter) {
       case "A-Z":
@@ -56,9 +77,9 @@ export const FavoritesList = () => {
     }
 
     return result;
-  }, [favorites, filter]);
+  }, [favorites, filter, searchTerm]);
 
-  const visible = sorted.slice(0, limit);
+  const visible = filteredFavorites.slice(0, limit);
 
   const handleRemove = (id: string, isFav: boolean) => {
     if (!isFav) {
@@ -70,8 +91,13 @@ export const FavoritesList = () => {
     <NanniesList
       nannies={visible}
       limit={limit}
-      totalLength={sorted.length}
+      totalLength={filteredFavorites.length}
       isLoading={loading}
+      searchValue={searchTerm}
+      onSearchChange={(val) => {
+        setSearchTerm(val);
+        setLimit(3);
+      }}
       onFilterChange={(val) => {
         setFilter(val);
         setLimit(3);
@@ -79,8 +105,14 @@ export const FavoritesList = () => {
       onLoadMore={() => setLimit((prev) => prev + 3)}
       onItemChange={handleRemove}
       isMoreLoading={false}
-      emptyMessage="Your favorites list is empty."
-      description="Explore our mannies and click the heart icon to save them here."
+      emptyMessage={
+        searchTerm ? "No matches found." : "Your favorites list is empty."
+      }
+      description={
+        searchTerm
+          ? "Try adjusting your search keywords."
+          : "Explore our mannies and click the heart icon to save them here."
+      }
     />
   );
 };

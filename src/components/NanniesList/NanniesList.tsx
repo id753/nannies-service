@@ -9,6 +9,7 @@ import Loader from "../UI/Loader/Loader";
 import { HeartBrokenIcon } from "../Icons/Icons";
 import { EmptyState } from "../EmptyState/EmptyState";
 import { useMemo } from "react";
+import SearchInput from "../SearchInput/SearchInput";
 
 interface NanniesListProps {
   nannies: Babysitter[];
@@ -21,6 +22,8 @@ interface NanniesListProps {
   isLoading: boolean;
   emptyMessage?: string;
   description?: string;
+  searchValue: string;
+  onSearchChange: (value: string) => void;
 }
 
 const NanniesList = ({
@@ -34,6 +37,8 @@ const NanniesList = ({
   isLoading,
   emptyMessage = "No mannies found.",
   description = "We couldn't find any mannies for your current search criteria.",
+  searchValue,
+  onSearchChange,
 }: NanniesListProps) => {
   const nanniesWithStatus = useMemo(() => {
     return nannies.map((item): Babysitter => {
@@ -54,7 +59,14 @@ const NanniesList = ({
   return (
     <section className={css.section}>
       <div className={css.container}>
-        <Filter onChange={onFilterChange} className={css.filter} />
+        <div className={css.controls}>
+          <Filter onChange={onFilterChange} className={css.filter} />
+          <SearchInput
+            value={searchValue}
+            onChange={onSearchChange}
+            placeholder="Find manny by name, city, character..."
+          />
+        </div>
 
         {nannies.length > 0 ? (
           <ul className={css.list}>
