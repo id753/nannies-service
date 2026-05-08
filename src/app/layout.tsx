@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Manny.Services | Reliable Care for Your Kids",
     description:
       "Discover verified mannies who provide active mentorship and professional care. Safety and trust first.",
-    url: "https://nannies-service.netlify.app/",
+    url: "",
     siteName: "Manny.Services",
     images: [
       {
