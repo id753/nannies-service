@@ -74,7 +74,7 @@ const Header = () => {
   const AuthBlock = isLoggedIn ? (
     <div className={css.userMenu}>
       <div className={css.userAvatar}>
-        <UserIcon />
+        <UserIcon className={css.userAvatarIcon} />
       </div>
       <span className={css.userName}>{user?.displayName}</span>
       <button className={css.logoutBtn} onClick={handleLogOut}>

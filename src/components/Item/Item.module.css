@@ -21,7 +21,8 @@
   width: 120px;
   height: 120px;
   padding: 12px;
-  border: 2px solid var(--second);
+  border: 2px solid color-mix(in srgb, var(--main) 20%, transparent);
+  background: color-mix(in srgb, var(--main) 5%, transparent);
   border-radius: 30px;
   display: flex;
   justify-content: center;

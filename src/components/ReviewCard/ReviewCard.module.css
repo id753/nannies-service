@@ -22,7 +22,8 @@
   border-radius: 100px;
   width: 44px;
   height: 44px;
-  background: var(--second);
+  background: var(--main);
+  background: color-mix(in srgb, var(--main) 10%, transparent);
 }
 
 .avatarLetter {
