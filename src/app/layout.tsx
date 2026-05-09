@@ -36,11 +36,11 @@ export const metadata: Metadata = {
     title: "Manny.Services | Reliable Care for Your Kids",
     description:
       "Discover verified mannies who provide active mentorship and professional care. Safety and trust first.",
-    url: "",
+    url: "https://manny-service.id753.workers.dev/",
     siteName: "Manny.Services",
     images: [
       {
-        url: "https://nannies-service.netlify.app/og-image.png",
+        url: "https://manny-service.id753.workers.dev/og-image.png",
         width: 1200,
         height: 630,
         alt: "Manny.Services - Professional Male Nannies",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Manny.Services | Hire a Professional Manny",
     description:
       "Find qualified and verified babysitters online. Active care and mentorship for your children.",
-    images: ["https://nannies-service.netlify.app/og-image.png"],
+    images: ["https://manny-service.id753.workers.dev/og-image.png"],
   },
   robots: {
     index: true,
