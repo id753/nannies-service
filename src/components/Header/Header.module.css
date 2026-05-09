@@ -84,6 +84,8 @@
   justify-content: center;
   color: var(--main);
   margin-right: 14px;
+  margin-left: 40px;
+  flex-shrink: 0;
 }
 .userName {
   font-size: 18px;
@@ -194,7 +196,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .userName {
     text-align: center;
     margin-right: 0;

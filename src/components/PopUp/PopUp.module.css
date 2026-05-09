@@ -119,6 +119,17 @@
   height: 52px;
 }
 
+.timeSelector::placeholder,
+.inputLong::placeholder,
+.textarea::placeholder,
+.input::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--text-second);
+  font-family: inherit;
+}
 .timeSelector {
   position: relative;
   cursor: pointer;
