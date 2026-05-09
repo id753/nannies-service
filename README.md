@@ -1,5 +1,5 @@
 # 👶Manny.Services
-
+смсм
 ## A modern web application 👩‍👧‍👦 designed to connect parents with professional and verified babysitters.
 
 ## The platform allows users to browse a detailed catalog of📍babysitters, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting 🏠 through an integrated appointment system. </br> Additionally, the application includes a secure authentication system, allowing users to register and manage their accounts, as well as save preferred mannies to a personal 'Favorites' list for quick access.
