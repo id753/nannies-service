@@ -1,21 +1,23 @@
 "use client";
 
 import { Toaster } from "sonner";
+import css from "./ToasterProvider.module.css";
 
 export default function ToasterProvider() {
   return (
     <Toaster
+      expand={true}
       position="top-right"
-      // expand={true}
-      richColors
+      // richColors
       closeButton
-      duration={2000}
+      duration={200000000}
       visibleToasts={3}
-      style={{ top: "80px" }}
+      offset={80}
       toastOptions={{
-        style: {
-          fontFamily: "var(--font-inter)",
-          fontSize: "16px",
+        classNames: {
+          toast: css.toast,
+          success: css.success,
+          error: css.error,
         },
       }}
     />

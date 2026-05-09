@@ -1,0 +1,24 @@
+.toast {
+  background: white;
+  color: var(--main) !important;
+  border-radius: 12px;
+  border: 1px solid white;
+  font-weight: 500 !important;
+  line-height: 150% !important;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: none !important;
+}
+
+.success {
+  background: color-mix(in srgb, var(--main) 8%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--main) 20%, transparent) !important;
+}
+
+.error {
+  background: var(--main) !important;
+  color: white !important;
+}

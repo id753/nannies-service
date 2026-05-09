@@ -30,6 +30,18 @@ main {
   width: 100%;
 }
 
+/* sonner toaster */
+[data-sonner-toast] [data-icon] {
+  width: 25px !important;
+  height: 25px !important;
+  flex-shrink: 0;
+}
+
+[data-sonner-toast] [data-icon] svg {
+  width: 25px !important;
+  height: 25px !important;
+}
+
 /* A Modern CSS Reset */
 *,
 *::before,
