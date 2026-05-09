@@ -1,5 +1,5 @@
 # 👶Manny.Services
-смсм
+
 ## A modern web application 👩‍👧‍👦 designed to connect parents with professional and verified babysitters.
 
 ## The platform allows users to browse a detailed catalog of📍babysitters, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting 🏠 through an integrated appointment system. </br> Additionally, the application includes a secure authentication system, allowing users to register and manage their accounts, as well as save preferred mannies to a personal 'Favorites' list for quick access.
@@ -31,6 +31,7 @@
 - ⚙️ **Development & Deployment**
 - **Version Control:** Git & GitHub.
 - **Deployment:** [Netlify](https://www.netlify.com/) (automated CI/CD).
+- *   **Deployment:** ~~Netlify (automated CI/CD)~~ -> **[Cloudflare Pages](https://pages.cloudflare.com/)** (Migrated for better performance and edge functions)
 - **SEO & Performance:** Implemented a robust global SEO foundation using static metadata, semantic HTML5 structure, and clean heading hierarchy. This ensures high search engine indexation and accessibility across all application pages.
 - **Design Philosophy:** Semantic HTML5, fluid layout using CSS Grid/Flexbox, CSS Modules (Modular and scoped styling), root styles.
 
