@@ -61,8 +61,11 @@ const Catalog = () => {
       case "less-10":
         result = result.filter((n) => n.price_per_hour < 10);
         break;
-      case "greater-10":
-        result = result.filter((n) => n.price_per_hour >= 10);
+      case "price-low":
+        result.sort((a, b) => a.price_per_hour - b.price_per_hour);
+        break;
+      case "price-high":
+        result.sort((a, b) => b.price_per_hour - a.price_per_hour);
         break;
       default:
         break;
