@@ -1,22 +1,20 @@
 # 👶Manny.Services
 
-## A modern web application 👩‍👧‍👦 designed to connect parents with professional and verified babysitters.
+## A modern web platform 👨‍👦 designed to help families quickly find trusted and experienced mannies for childcare and everyday support.
 
-## The platform allows users to browse a detailed catalog of📍babysitters, filter them by specific criteria such as price, popularity, and experience, and book a personal meeting 🏠 through an integrated appointment system. </br> Additionally, the application includes a secure authentication system, allowing users to register and manage their accounts, as well as save preferred mannies to a personal 'Favorites' list for quick access.
+## The application allows users to explore a detailed catalog of 📍professional mannies, search and filter specialists by rating, price, popularity, and experience, and save favorite profiles ❤️ for quick access. </br> The platform also includes secure authentication 🔐, responsive design 📱, and an intuitive interface that makes finding the right childcare specialist simple, fast, and comfortable.
 
 <p align="center">
-   <img src="https://github.com/user-attachments/assets/21ab1c57-15b9-4eba-a1d6-ff7979f33ca6" width="450"  alt="Nanny.Services App Screenshot"  />
+   <img src="https://github.com/user-attachments/assets/21ab1c57-15b9-4eba-a1d6-ff7979f33ca6" width="450"  alt="Manny.Services App Screenshot"  />
   <br>
-  <sub>Nanny.Services App Screenshot</sub>
+  <sub>Manny.Services App Screenshot</sub>
 </p>
 
 # Quick Links
 
-## [Live Project](https://nannies-service.netlify.app/)
-
-## [Technical Requirements](https://docs.google.com/document/d/1NF8-qXrI-G4wSKDRQ99Akfg_BlOpz1x_vX92TbKBJ44/edit?usp=sharing)
-
-## [Project Layout](https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=5qXICKgmNjipRLld-0)
+## [Live Project](https://manny-service.id753.workers.dev/)
+## [Original Technical Requirements](https://docs.google.com/document/d/1NF8-qXrI-G4wSKDRQ99Akfg_BlOpz1x_vX92TbKBJ44/edit?usp=sharing)
+## [Original Project Layout](https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=5qXICKgmNjipRLld-0)
 
 ## Tech Stack
 
@@ -30,23 +28,21 @@
 - **Notifications:** [`sonner`](https://sonner.emilkowal.ski/) for rich-color feedback messages.
 - ⚙️ **Development & Deployment**
 - **Version Control:** Git & GitHub.
-- **Deployment:** [Netlify](https://www.netlify.com/) (automated CI/CD).
-- *   **Deployment:** ~~Netlify (automated CI/CD)~~ -> **[Cloudflare Pages](https://pages.cloudflare.com/)** (Migrated for better performance and edge functions)
-- **SEO & Performance:** Implemented a robust global SEO foundation using static metadata, semantic HTML5 structure, and clean heading hierarchy. This ensures high search engine indexation and accessibility across all application pages.
-- **Design Philosophy:** Semantic HTML5, fluid layout using CSS Grid/Flexbox, CSS Modules (Modular and scoped styling), root styles.
+- **Deployment:** ~~Netlify (automated CI/CD)~~ -> [Cloudflare Pages](https://pages.cloudflare.com/) (Migrated for better performance and edge functions)
+  - **SEO & Performance:** Static metadata, semantic HTML5, and a clean heading structure for better indexing and accessibility
+  - **Design Philosophy:** Semantic HTML5, CSS Grid/Flexbox, CSS Modules, root styles, and [framer-motion](https://www.npmjs.com/package/framer-motion?activeTab=readme) for smooth UI interactions.
 
 ## Features
 
 ### Frontend Experience
-
-- ✅ **User Authentication**: Secure registration and login powered by Firebase Auth, with private routes for authenticated users.
-- 🎓 **Smart Catalog**: A list of babysitters with pagination ("Load More" functionality), responsive cards, and real-time status tracking.
-- 🔎 **Advanced Filtering & Sorting**: Real-time sorting by name (A-Z, Z-A), price categories (less than/greater than $10/hour), and popularity (rating).
-- 📄 **Favorites System**: Authenticated users can save their preferred mannies to a personal "Favorites" list, with state persistence across page refreshes.
-- 🗓️ **Booking System**: A fully validated appointment form (using react-hook-form and yup) for users to request a meeting.
-- 🎨 **Responsive UI**: A fully adaptive design ensuring a seamless experience across mobile, tablet, and desktop devices.
-- ✨ **Theming & Customization:** Utilized CSS variables (root styles) for the design system. This architecture allows for global updates to the color palette, typography, and spacing, enabling rapid branding changes or the implementation of Dark/Light modes with minimal effort.
--
+- ✅ **User Authentication**: Secure registration and login powered by Firebase Authentication with protected routes for authorized users.
+- 👨‍👦 **Custom Manny Catalog**: Independently created and structured a unique database of male babysitters with personalized profiles, optimized images, and dynamic online/offline indicators.
+- 🔎 **Search, Filtering & Sorting**: Users can instantly search mannies by name, city, or personality traits, while also sorting results by alphabetical order, hourly rate, and popularity.
+- 📄 **Favorites System**: Authenticated users can save preferred mannies to a personal favorites list with persistent state across page refreshes.
+- 🗓️ **Booking Functionality**: Integrated appointment form with validation using react-hook-form and yup for requesting personal meetings.
+- 🎨 **Responsive Interface**: Fully adaptive UI optimized for desktop, tablet, and mobile devices.
+- ✨ **UI/UX Enhancements**: Redesigned homepage content, improved visual hierarchy, and implemented modern interactive elements for a more engaging user experience.
+- ⚙️ **Scalable Styling Architecture**: Built a reusable styling system using CSS variables, allowing easy theme customization, global design updates, and future Dark/Light mode support.
 
 ## 🔢 Getting Started (Frontend)
 
