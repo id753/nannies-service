@@ -126,13 +126,17 @@ const Item = ({ item, onFavoriteChange }: ItemProps) => {
           <button
             type="button"
             onClick={handleFavoriteClick}
+            aria-label={
+              isFavorite ? "Remove from favorites" : "Add to favorites"
+            }
+            title={isFavorite ? "Remove from favorites" : "Add to favorites"}
             className={css.heartBtn}
           >
             <HeartIcon isFavorite={isFavorite} />
           </button>
         </div>
 
-        <h3 className={css.name}>{item.name}</h3>
+        <h2 className={css.name}>{item.name}</h2>
 
         <div className={css.features}>
           <p className={css.featureItem}>

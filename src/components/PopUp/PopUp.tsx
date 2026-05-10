@@ -90,7 +90,9 @@ const PopUp = ({ onClose, item }: ModalProps) => {
     setIsMoreLoading(true);
     const fullData = { ...data, nannyId: item.id };
     setTimeout(() => {
-      console.log("Form Data:", fullData);
+      if (process.env.NODE_ENV === "development") {
+        console.log(fullData);
+      }
       setIsMoreLoading(false);
       toast.success("Great! The manny will contact you soon.");
       onClose();
@@ -103,7 +105,12 @@ const PopUp = ({ onClose, item }: ModalProps) => {
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className={css.modal}>
-        <button onClick={onClose} className={css.closeBtn} type="button">
+        <button
+          onClick={onClose}
+          className={css.closeBtn}
+          type="button"
+          aria-label="Close popup"
+        >
           <CloseIcon />
         </button>
 

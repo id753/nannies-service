@@ -54,7 +54,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 125%;
-  color: rgba(17, 16, 28, 0.5);
+  color: var(--text-second);
   margin-bottom: 40px;
 }
 
@@ -157,12 +157,12 @@
   left: 4px;
   font-size: 12px;
   line-height: 1;
-  color: #ef4444;
+  color: var(--main);
 }
 
 .firebaseError {
   font-size: 14px;
-  color: #ef4444;
+  color: var(--main);
   text-align: center;
   height: 20px;
   display: block;

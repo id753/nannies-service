@@ -75,9 +75,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
         <AuthProvider>
-          <PageLayoutHandler>
-            <main>{children}</main>
-          </PageLayoutHandler>
+          <PageLayoutHandler>{children}</PageLayoutHandler>
         </AuthProvider>
         <ToasterProvider />
       </body>

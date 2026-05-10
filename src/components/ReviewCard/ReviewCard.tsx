@@ -21,7 +21,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
           <span className={css.avatarLetter}>{firstLetter}</span>
         </div>
         <div className={css.DescripContainer}>
-          <h4 className={css.name}>{review.reviewer}</h4>
+          <h3 className={css.name}>{review.reviewer}</h3>
 
           <span className={css.rating}>
             <StarIcon className={css.icon} /> {review.rating.toFixed(1)}

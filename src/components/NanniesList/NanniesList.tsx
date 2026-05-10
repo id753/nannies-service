@@ -60,6 +60,7 @@ const NanniesList = ({
     <section className={css.section}>
       <div className={css.container}>
         <div className={css.controls}>
+          <h1 className="visuallyHidden">Find trusted professional mannies</h1>
           <Filter onChange={onFilterChange} className={css.filter} />
           <SearchInput
             value={searchValue}

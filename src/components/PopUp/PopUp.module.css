@@ -50,7 +50,8 @@
 .text {
   font-size: 16px;
   line-height: 125%;
-  color: rgba(17, 16, 28, 0.5);
+  color: var(--text-second);
+
   margin-bottom: 40px;
 }
 
@@ -180,7 +181,7 @@
 
 .dropdown li {
   padding: 4px 0;
-  color: rgba(17, 16, 28, 0.3);
+  color: var(--text-second);
   text-align: center;
   cursor: pointer;
   transition: color 0.2s;
@@ -188,6 +189,8 @@
 
 .dropdown li:hover {
   color: var(--text-main);
+  background: color-mix(in srgb, var(--main) 10%, transparent);
+
   font-weight: 500;
 }
 

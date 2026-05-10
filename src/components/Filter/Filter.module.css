@@ -49,7 +49,7 @@
 }
 
 .dropdown li {
-  color: rgba(17, 16, 28, 0.3);
+  color: var(--text-second);
   margin-bottom: 12px;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -57,6 +57,7 @@
 
 .dropdown li:hover {
   color: var(--text-main);
+  background: color-mix(in srgb, var(--main) 10%, transparent);
 }
 
 .dropdown li:last-child {

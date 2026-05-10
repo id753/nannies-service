@@ -82,7 +82,12 @@ const Modal = ({ onClose, type }: ModalProps) => {
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className={css.modal}>
-        <button onClick={onClose} className={css.closeBtn} type="button">
+        <button
+          onClick={onClose}
+          className={css.closeBtn}
+          type="button"
+          aria-label="Close popup"
+        >
           <CloseIcon />
         </button>
 

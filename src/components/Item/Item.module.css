@@ -141,7 +141,8 @@
 }
 
 .priceValue {
-  color: #38cd3e;
+  color: #08722f;
+  font-weight: 600;
 }
 
 .name {
@@ -176,7 +177,7 @@
   text-decoration: underline;
 }
 .description {
-  color: rgba(17, 16, 28, 0.5);
+  color: var(--text-second);
   line-height: 1.25;
   margin-bottom: 14px;
 }

@@ -94,9 +94,9 @@ export const HeartIcon = ({ isFavorite, className }: IconProps) => {
       <path
         d="M22.5766 4.99419C22.0233 4.44061 21.3663 4.00147 20.6433 3.70187C19.9202 3.40226 19.1452 3.24805 18.3625 3.24805C17.5798 3.24805 16.8047 3.40226 16.0817 3.70187C15.3586 4.00147 14.7016 4.44061 14.1483 4.99419L13 6.14252L11.8516 4.99419C10.734 3.87652 9.21809 3.24863 7.63747 3.24863C6.05685 3.24863 4.54097 3.87652 3.4233 4.99419C2.30563 6.11186 1.67773 7.62774 1.67773 9.20836C1.67773 10.789 2.30563 12.3049 3.4233 13.4225L4.57163 14.5709L13 22.9992L21.4283 14.5709L22.5766 13.4225C23.1302 12.8692 23.5693 12.2122 23.869 11.4892C24.1686 10.7661 24.3228 9.99105 24.3228 9.20836C24.3228 8.42566 24.1686 7.65064 23.869 6.92756C23.5693 6.20448 23.1302 5.54751 22.5766 4.99419Z"
         // Якщо обрано — заливаємо червоним, якщо ні — прозорим
-        fill={isFavorite ? "#F03F3B" : "none"}
+        fill={isFavorite ? "var(--main)" : "none"}
         // Якщо обрано — контур червоний, якщо ні — темний
-        stroke={isFavorite ? "#F03F3B" : "#11101C"}
+        stroke={isFavorite ? "var(--main)" : "#11101C"}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -117,8 +117,8 @@ export const HeartBrokenIcon = ({ isFavorite, className }: IconProps) => {
     >
       <path
         d="M11.5 22L4.5 15C2.5 13 2 10 3.2 7.8C4.3 5.7 6.2 4.5 8.5 4.5C10.1 4.5 11.5 5.2 12.5 6.4L14 8"
-        fill={isFavorite ? "#F03F3B" : "#F03F3B"}
-        stroke={isFavorite ? "#F03F3B" : "#F03F3B"}
+        fill={isFavorite ? "var(--main)" : "var(--main)"}
+        stroke={isFavorite ? "var(--main)" : "var(--main)"}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -126,8 +126,8 @@ export const HeartBrokenIcon = ({ isFavorite, className }: IconProps) => {
 
       <path
         d="M14.5 22L21.5 15C23.5 13 24 10 22.8 7.8C21.7 5.7 19.8 4.5 17.5 4.5C15.9 4.5 14.5 5.2 13.5 6.4L12 8"
-        fill={isFavorite ? "#F03F3B" : "#F03F3B"}
-        stroke={isFavorite ? "#F03F3B" : "#F03F3B"}
+        fill={isFavorite ? "var(--main)" : "var(--main)"}
+        stroke={isFavorite ? "var(--main)" : "var(--main)"}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
