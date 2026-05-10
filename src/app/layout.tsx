@@ -19,11 +19,11 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Manny.Services | Professional Male Nannies & Childcare",
+    default: "Manny.Services | Find Professional Male Nannies & Childcare",
     template: "%s | Manny.Services",
   },
   description:
-    "Find trusted and verified mannies for professional childcare services. Browse experienced male nannies, compare profiles, and hire the right match for your family.",
+    "Find trusted and verified mannies for professional childcare services. Browse experienced mannies, compare profiles, and hire the right match for your family.",
 
   keywords: [
     "male nanny",
