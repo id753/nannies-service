@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     canonical: "https://manny-service.id753.workers.dev",
   },
   openGraph: {
-    title: "Manny.Services | Find Verified Mannies Online",
+    title: "Manny.Services | Find Professional Male Nannies & Childcare",
     description:
-      "Find trusted and verified mannies for professional childcare services. Browse experienced male nannies, compare profiles, and hire the right match for your family.",
+      "Find verified mannies for professional childcare services. Browse experienced male nannies, compare profiles, and hire the right match for your family.",
     url: "https://manny-service.id753.workers.dev/",
     siteName: "Manny.Services",
     images: [
