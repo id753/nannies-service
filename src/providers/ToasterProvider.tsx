@@ -10,7 +10,7 @@ export default function ToasterProvider() {
       position="top-right"
       // richColors
       closeButton
-      duration={200000000}
+      duration={2000}
       visibleToasts={3}
       offset={80}
       toastOptions={{
