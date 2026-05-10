@@ -6,7 +6,7 @@ import css from "./ToasterProvider.module.css";
 export default function ToasterProvider() {
   return (
     <Toaster
-      expand={true}
+      // expand={true}
       position="top-right"
       // richColors
       closeButton
