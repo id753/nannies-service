@@ -23,7 +23,8 @@ export const metadata: Metadata = {
     template: "%s | Manny.Services",
   },
   description:
-    "Find and hire verified male nannies (mannies). Professional, active, and reliable childcare services tailored for your family. Book your perfect match today!",
+    "Find trusted and verified mannies for professional childcare services. Browse experienced male nannies, compare profiles, and hire the right match for your family.",
+
   keywords: [
     "male nanny",
     "manny",
@@ -32,10 +33,13 @@ export const metadata: Metadata = {
     "professional childcare",
     "manny services online",
   ],
+  alternates: {
+    canonical: "https://manny-service.id753.workers.dev",
+  },
   openGraph: {
-    title: "Manny.Services | Reliable Care for Your Kids",
+    title: "Manny.Services | Find Verified Mannies Online",
     description:
-      "Discover verified mannies who provide active mentorship and professional care. Safety and trust first.",
+      "Find trusted and verified mannies for professional childcare services. Browse experienced male nannies, compare profiles, and hire the right match for your family.",
     url: "https://manny-service.id753.workers.dev/",
     siteName: "Manny.Services",
     images: [
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manny.Services | Hire a Professional Manny",
+    title: "Manny.Services | Trusted Male Nannies",
     description:
       "Find qualified and verified babysitters online. Active care and mentorship for your children.",
     images: ["https://manny-service.id753.workers.dev/og-image.png"],
