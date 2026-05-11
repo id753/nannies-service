@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="./public/screenshots/desktop-home.png" width="600" alt="WAVE Audit" />
+  <br>
+  <sub>WAVE Web Accessibility Evaluation Tools Screenshot</sub>
+</p>
 
 # 👶 Manny.Services
 
