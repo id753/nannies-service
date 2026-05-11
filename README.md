@@ -1,31 +1,3 @@
-
-
-<details>
-<summary><b>View Performance & Accessibility Reports</b></summary>
-  <p align="center">
-  <img src="./screenshots/desktop-manny.png" width="450" alt="desktop-manny" />
-  <br>
-  <sub>Manny's page with customer reviews Screenshot</sub>
-</p>
-    <p align="center">
-  <img src="./screenshots/mobile-meeting.png" width="600" alt="Manny appointment form" />
-  <br>
-  <sub>Manny appointment form (mobile version) Screenshot</sub>
-</p>
-    <p align="center">
-  <img src="./screenshots/desktop-another-color.png" width="600" alt="An example of a simple change to a website's color scheme" />
-  <br>
-  <sub>An example of a simple change to a website's color scheme Screenshot</sub>
-</p>
-  <p align="center">
-  <img src="./screenshots/desktop-register.png" width="600" alt="Account registration form" />
-  <br>
-  <sub>Account registration form Screenshot</sub>
-</p>
-
-</details>
-
-  
 # 👶 Manny.Services
 
 A modern web platform designed to help families quickly find trusted and experienced mannies for childcare and everyday support.
@@ -132,6 +104,27 @@ Run the app
 
 Open http://localhost:3000 in your browser.
 
-<!-- 
-## ⚠️ Note: The server is hosted on Render's free plan and may “sleep” when idle — the first load after waking up can take 30–50 seconds.
-<!--
+
+<details>
+<summary><b>View Screenshots</b></summary>
+  <p align="center">
+  <img src="./screenshots/desktop-manny.png" width="600" alt="desktop-manny" />
+  <br>
+  <sub>Manny's page with customer reviews</sub>
+</p>
+    <p align="center">
+  <img src="./screenshots/desktop-another-color.png" width="600" alt="An example of a simple change to a website's color scheme" />
+  <br>
+  <sub>An example of a simple change to a website's color scheme</sub>
+</p>
+  <p align="center">
+  <img src="./screenshots/desktop-register.png" width="600" alt="Account registration form" />
+  <br>
+  <sub>Account registration form </sub>
+</p>
+    <p align="center">
+  <img src="./screenshots/mobile-meeting.png" width="600" alt="Manny appointment form" />
+  <br>
+  <sub>Manny appointment form (mobile version) </sub>
+</p>
+</details>
