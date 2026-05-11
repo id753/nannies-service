@@ -61,7 +61,22 @@ Users can explore profiles, filter specialists by rating, price, and experience,
 - 🖥️ Manual testing performed across different devices and screen sizes
 - 🔤 Semantic HTML structure and heading hierarchy reviewed
 - 🧪 Performance and usability analyzed using [Google PageSpeed Insights ](https://pagespeed.web.dev) and [GTmetrix](https://gtmetrix.com/reports/manny-service.id753.workers.dev/kcUoVrP1/) audits
+<details>
+<summary><b>View Performance & Accessibility Reports (WAVE & PageSpeed)</b></summary>
 
+<p align="center">
+  <img width="600" alt="WAVE Screenshot" src="https://github.com/user-attachments/assets/1861d22e-bd90-4f87-bb89-35cfd8fbd2a9" />
+  <br>
+  <sub>WAVE Web Accessibility Evaluation Tools Screenshot</sub>
+</p>
+
+<p align="center">
+  <img width="600" alt="PageSpeed Screenshot" src="https://github.com/user-attachments/assets/0c7ea3f2-87ca-4181-8d05-d375e0b0997a" />
+  <br>
+  <sub>PageSpeed Insights Screenshot</sub>
+</p>
+
+</details>
 <p align="center">
    <img width="450" alt="WAVE Web Accessibility Evaluation Tools" src="https://github.com/user-attachments/assets/1861d22e-bd90-4f87-bb89-35cfd8fbd2a9" />
   <br>
