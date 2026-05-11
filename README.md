@@ -8,36 +8,36 @@
   <sub>Manny.Services App Screenshot</sub>
 </p>
 
-# Quick Links
+## Quick Links
 
-## [Live Project](https://manny-service.id753.workers.dev/)
-## [Original Technical Requirements](https://docs.google.com/document/d/1NF8-qXrI-G4wSKDRQ99Akfg_BlOpz1x_vX92TbKBJ44/edit?usp=sharing)
-## [Original Project Layout](https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=5qXICKgmNjipRLld-0)
+### [Live Project](https://manny-service.id753.workers.dev/)
+### [Original Technical Requirements](https://docs.google.com/document/d/1NF8-qXrI-G4wSKDRQ99Akfg_BlOpz1x_vX92TbKBJ44/edit?usp=sharing)
+### [Original Project Layout](https://www.figma.com/design/u36ajEOsnwio2GDGiabVPD/Nanny-Sevices?node-id=0-1&p=f&t=5qXICKgmNjipRLld-0)
 
 ## Tech Stack
-## ⚙️ Core Technologies
+### ⚙️ Core Technologies
 - **Frontend:** Next.js (App Router), React, CSS Modules
 - **Backend & Database:** [Firebase Realtime Database](https://firebase.google.com/docs/database?hl=ru), [Firebase Authentication](https://firebase.google.com/docs/auth?hl=ru)
 - **Language:** TypeScript (type-safe codebase)
 
-## ⚙️ State & Form Management
+### ⚙️ State & Form Management
 - **State Handling:** React Hooks (`useState`, `useEffect`, `useMemo`)
 - **Form Management:** [`react-hook-form`](https://react-hook-form.com/docs) with `yup` schema validation
 - **Notifications:** [`sonner`](https://sonner.emilkowal.ski/) for rich UI feedback messages
 
-## ⚙️ Development & Deployment
+### ⚙️ Development & Deployment
 - **Version Control:** Git & GitHub
 - **Deployment:** ~~Netlify (automated CI/CD)~~ → [Cloudflare Pages](https://pages.cloudflare.com/) (migrated for better performance and edge functions)
 
-## 🔎 Performance & SEO
+### 🔎 Performance & SEO
 - Static metadata and semantic HTML5 structure
 - Clean heading hierarchy for better indexing and accessibility
 
-## 🎨 UI & Design
+### 🎨 UI & Design
 - CSS Grid / Flexbox, CSS Modules, global CSS variables
 - [`framer-motion`](https://www.npmjs.com/package/framer-motion?activeTab=readme) for smooth UI animations
 
-- 
+  
 ## Features
 
 ### Frontend Experience
@@ -102,7 +102,7 @@ Run the app
 
 Open http://localhost:3000 in your browser.
 
-
+### Screenshots
 <details>
 <summary><b>View Screenshots</b></summary>
   <p align="center">
