@@ -10,7 +10,7 @@
   <br>
   <sub>Manny.Services App Screenshot</sub>
 </p>
-![Preview](./screenshots/desktop-list.png) 
+![Preview]([./screenshots/desktop-list.png](https://github.com/USERNAME/REPO/blob/main/screenshots/desktop-list.png)) 
 # Quick Links
 
 ## [Live Project](https://manny-service.id753.workers.dev/)
