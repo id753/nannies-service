@@ -41,14 +41,14 @@ main {
 
 /* sonner toaster */
 [data-sonner-toast] [data-icon] {
-  width: 25px !important;
-  height: 25px !important;
+  width: 30px !important;
+  height: 30px !important;
   flex-shrink: 0;
 }
 
 [data-sonner-toast] [data-icon] svg {
-  width: 25px !important;
-  height: 25px !important;
+  width: 30px !important;
+  height: 30px !important;
 }
 
 /* A Modern CSS Reset */
