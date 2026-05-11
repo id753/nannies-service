@@ -1,8 +1,6 @@
 # 👶 Manny.Services
 
-A modern web platform designed to help families quickly find trusted and experienced mannies for childcare and everyday support.
-
-Users can explore profiles, filter specialists by rating, price, and experience, and save favorites for quick access. The platform includes secure authentication, responsive design, and an intuitive UI focused on simplicity and usability.
+## A modern web platform designed to help families 🍬 quickly find trusted and experienced mannies 👨‍👦 for childcare and everyday support. </br> Users can explore profiles, search and filter specialists by rating, price, and experience, and save favorites for quick access. The platform includes secure authentication 🔐, responsive design, and an intuitive UI focused on simplicity and usability.
 
 <p align="center">
    <img width="450"  alt="Manny.Services App Screenshot" src="https://github.com/user-attachments/assets/d55f91af-a65f-4e04-bda0-c91dc7e465b8" />
