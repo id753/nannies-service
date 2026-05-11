@@ -1,6 +1,6 @@
 # 👶 Manny.Services
 
-## A modern web platform designed to help families 🍬 quickly find trusted and experienced mannies 👨‍👦 for childcare and everyday support. </br> Users can explore profiles, search and filter specialists by rating, price, and experience, and save favorites for quick access. The platform includes secure authentication 🔐, responsive design, and an intuitive UI focused on simplicity and usability.
+## A modern web platform designed to help families quickly find trusted and experienced mannies 👨‍👦 for childcare and everyday support. </br> Users can explore profiles, 🧸 search and filter specialists by rating, price, and experience, and save favorites for quick access. The platform includes secure authentication 🔐, responsive design, and an intuitive UI focused on simplicity and usability.
 
 <p align="center">
    <img width="450"  alt="Manny.Services App Screenshot" src="https://github.com/user-attachments/assets/d55f91af-a65f-4e04-bda0-c91dc7e465b8" />
@@ -27,7 +27,7 @@
 
 ### ⚙️ Development & Deployment
 - **Version Control:** Git & GitHub
-- **Deployment:** ~~Netlify (automated CI/CD)~~ → [Cloudflare Pages](https://pages.cloudflare.com/) (migrated for better performance and edge functions)
+- **Deployment:** ~~[Netlify ](https://www.netlify.com/) (automated CI/CD)~~ → [Cloudflare Pages](https://pages.cloudflare.com/) (migrated for better performance and edge functions)
 
 ### 🔎 Performance & SEO
 - Static metadata and semantic HTML5 structure
@@ -102,7 +102,7 @@ Run the app
 
 Open http://localhost:3000 in your browser.
 
-### Screenshots
+## Screenshots
 <details>
 <summary><b>View Screenshots</b></summary>
   <p align="center">
