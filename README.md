@@ -1,9 +1,45 @@
-<p align="center">
-  <img src="./screenshots/desktop-home.png" width="600" alt="WAVE Audit" />
-  <br>
-  <sub>WAVE Web Accessibility Evaluation Tools Screenshot</sub>
-</p>
+<details>
+<summary><b>View Performance & Accessibility Reports</b></summary>
+<br />
+<table width="100%">
+  <tr>
+    <td align="center" width="50%">
+      <b>WAVE Accessibility Audit</b>
+      <br />
+      <img src="./public/screenshots/wave-audit.png" width="100%" alt="WAVE Audit" />
+      <br />
+      <sub>Zero errors detected</sub>
+    </td>
+    <td align="center" width="50%">
+      <b>PageSpeed Insights</b>
+      <br />
+      <img src="./public/screenshots/pagespeed-audit.png" width="100%" alt="PageSpeed Insights" />
+      <br />
+      <sub>95+ Performance Score</sub>
+    </td>
+  </tr>
+</table>
+</details>
 
+<details>
+<summary><b>View Performance & Accessibility Reports</b></summary>
+  <p align="center">
+  <img src="./screenshots/desktop-manny.png" width="600" alt="desktop-manny" />
+  <br>
+  <sub>Manny's page with customer reviews Screenshot</sub>
+</p>
+  <p align="center">
+  <img src="./screenshots/desktop-register.png" width="600" alt="Account registration form" />
+  <br>
+  <sub>Account registration form Screenshot</sub>
+</p>
+  <p align="center">
+  <img src="./screenshots/mobile-meeting.png" width="600" alt="Manny appointment form" />
+  <br>
+  <sub>Manny appointment form (mobile version) Screenshot</sub>
+</p>
+</details>
+  
 # 👶 Manny.Services
 
 A modern web platform designed to help families quickly find trusted and experienced mannies for childcare and everyday support.
