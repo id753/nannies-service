@@ -20,12 +20,12 @@
 - **Backend & Database:** [Firebase Realtime Database](https://firebase.google.com/docs/database?hl=ru), [Firebase Authentication](https://firebase.google.com/docs/auth?hl=ru)
 - **Language:** TypeScript (type-safe codebase)
 
-### ⚙️ State & Form Management
+### 🛂 State & Form Management
 - **State Handling:** React Hooks (`useState`, `useEffect`, `useMemo`)
 - **Form Management:** [`react-hook-form`](https://react-hook-form.com/docs) with `yup` schema validation
 - **Notifications:** [`sonner`](https://sonner.emilkowal.ski/) for rich UI feedback messages
 
-### ⚙️ Development & Deployment
+### 👨‍💻 Development & Deployment
 - **Version Control:** Git & GitHub
 - **Deployment:** ~~[Netlify ](https://www.netlify.com/) (automated CI/CD)~~ → [Cloudflare Pages](https://pages.cloudflare.com/) (migrated for better performance and edge functions)
 
