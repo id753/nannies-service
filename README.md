@@ -6,13 +6,13 @@
     <td align="center" width="50%">
       <b>WAVE Accessibility Audit</b>
       <br />
-<img src="./screenshots/mobile-meeting.png" width="600" alt="Manny appointment form" />      <br />
+<img src="./screenshots/mobile-meeting.png" width="400" alt="Manny appointment form" />      <br />
       <sub>Zero errors detected</sub>
     </td>
     <td align="center" width="50%">
       <b>PageSpeed Insights</b>
       <br />
-<img src="./screenshots/mobile-meeting.png" width="600" alt="Manny appointment form" />      <br />
+<img src="./screenshots/mobile-meeting.png" width="400" alt="Manny appointment form" />      <br />
       <sub>95+ Performance Score</sub>
     </td>
   </tr>
