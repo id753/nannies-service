@@ -73,7 +73,7 @@ Users can explore profiles, filter specialists by rating, price, and experience,
   <sub>PageSpeed Insights Screenshot</sub>
 </p>
  <p align="center">
-<img width="450" alt="GTmetrix Screenshot" src="https://github.com/user-attachments/assets/d05b5b13-e0f7-4c22-b232-b21b9e6f6ced" />
+<img width="450" height="450" alt="GTmetrix Screenshot" src="https://github.com/user-attachments/assets/d05b5b13-e0f7-4c22-b232-b21b9e6f6ced" />
   <br>
   <sub>GTmetrix Screenshot</sub>
 </p>
