@@ -64,8 +64,6 @@ Users can explore profiles, filter specialists by rating, price, and experience,
 
 
 
-
-
 ## 🔢 Getting Started (Frontend)
 
 Clone the repository
@@ -79,7 +77,7 @@ Install dependencies
 Environment Variables
 Create a .env file in the root directory (use .env.example as a template):
 
-    NEXT_PUBLIC_=http://localhost:3000
+    NEXT_PUBLIC_FIREBASE_API_KEY=
 
 Run the app
 
